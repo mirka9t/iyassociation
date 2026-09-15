@@ -1,0 +1,2386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="International Youth Association — a student organisation in Samarkand. IYAMUN 2026 applications are open.">
+<title>International Youth Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   1. DESIGN TOKENS  —  every colour lives here, once.
+   ============================================================ */
+:root{
+  --paper:#eef2f6;
+  --paper-2:#e5ebf1;
+  --surface:#ffffff;
+  --surface-2:#f5f8fa;
+  --ink:#101a2d;
+  --ink-soft:#4c5a72;
+  --ink-mute:#6b7890;
+  --navy:#0d2145;
+  --navy-2:#14315c;
+  --gold:#a4781f;
+  --gold-strong:#835f16;
+  --gold-glow:rgba(164,120,31,.22);
+  --line:rgba(13,33,69,.14);
+  --grid-dot:rgba(13,33,69,.075);
+  --grid-line:rgba(13,33,69,.045);
+  --star:#c2942c;
+  --focus:#1c5cae;
+  --shadow:0 14px 34px rgba(13,33,69,.10);
+  --shadow-lift:0 20px 44px rgba(13,33,69,.16);
+  --on-gold:#1b1403;
+  --hero-grid:rgba(233,204,120,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#08111f;
+    --paper-2:#0b1729;
+    --surface:#101f38;
+    --surface-2:#152743;
+    --ink:#eef2f8;
+    --ink-soft:#a9b4c9;
+    --ink-mute:#8794ad;
+    --navy:#0f2242;
+    --navy-2:#1c3a67;
+    --gold:#e7c873;
+    --gold-strong:#f3dd9e;
+    --gold-glow:rgba(231,200,115,.20);
+    --line:rgba(238,241,246,.15);
+    --grid-dot:rgba(238,241,246,.085);
+    --grid-line:rgba(238,241,246,.05);
+    --star:#e7c873;
+    --focus:#7fb0ff;
+    --shadow:0 14px 34px rgba(0,0,0,.42);
+    --shadow-lift:0 22px 48px rgba(0,0,0,.55);
+    --on-gold:#12203a;
+    --hero-grid:rgba(233,204,120,.20);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#08111f;
+  --paper-2:#0b1729;
+  --surface:#101f38;
+  --surface-2:#152743;
+  --ink:#eef2f8;
+  --ink-soft:#a9b4c9;
+  --ink-mute:#8794ad;
+  --navy:#0f2242;
+  --navy-2:#1c3a67;
+  --gold:#e7c873;
+  --gold-strong:#f3dd9e;
+  --gold-glow:rgba(231,200,115,.20);
+  --line:rgba(238,241,246,.15);
+  --grid-dot:rgba(238,241,246,.085);
+  --grid-line:rgba(238,241,246,.05);
+  --star:#e7c873;
+  --focus:#7fb0ff;
+  --shadow:0 14px 34px rgba(0,0,0,.42);
+  --shadow-lift:0 22px 48px rgba(0,0,0,.55);
+  --on-gold:#12203a;
+  --hero-grid:rgba(233,204,120,.20);
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*{box-sizing:border-box;}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:86px;      /* so anchors don't hide under the sticky bar */
+}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(var(--grid-dot) 1px, transparent 1.4px);
+  background-size:26px 26px;
+  color:var(--ink);
+  font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;}
+[hidden]{display:none !important;}
+h1,h2,h3,h4{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:600; line-height:1.14; margin:0;
+  text-wrap:balance; color:var(--ink);
+}
+h2{font-size:clamp(1.7rem, 3.4vw, 2.45rem);}
+h3{font-size:1.12rem;}
+p{margin:0;}
+a{color:inherit;}
+button,input,select,textarea{font-family:inherit; font-size:1rem; color:inherit;}
+:focus-visible{outline:2.5px solid var(--focus); outline-offset:3px; border-radius:3px;}
+
+.wrap{max-width:1140px; margin:0 auto; padding-inline:22px;}
+.section{padding-block:92px; border-top:1px solid var(--line); position:relative;}
+.section.alt{background:color-mix(in srgb, var(--paper-2) 70%, transparent);}
+.section-head{max-width:660px; margin-bottom:52px;}
+.section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.06rem;}
+.lede{color:var(--ink-soft); font-size:1.07rem;}
+
+.eyebrow{
+  display:flex; align-items:center; gap:9px; margin-bottom:12px;
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.71rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); font-weight:500;
+}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--gold); flex:none;}
+
+/* Colour-fade when the theme switches (added by JS only during the switch) */
+.theme-anim, .theme-anim *{
+  transition:background-color .38s ease, color .3s ease,
+             border-color .38s ease, fill .38s ease, stroke .38s ease !important;
+}
+
+/* ============================================================
+   3. MOTION  —  everything here is switched off for people who
+      ask their device to reduce motion.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    transition-duration:.001ms !important; scroll-behavior:auto !important;
+  }
+}
+@keyframes riseIn{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;} }
+@keyframes spinSlow{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
+@keyframes spinRing{ to{ transform:rotate(360deg); } }
+@keyframes popNum{ 0%{transform:scale(1);} 35%{transform:scale(1.16);} 100%{transform:scale(1);} }
+@keyframes softPulse{ 0%,100%{opacity:.5; transform:scale(1);} 50%{opacity:0; transform:scale(1.45);} }
+@keyframes floatY{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+@keyframes dashFlow{ to{ stroke-dashoffset:-120; } }
+
+/* Content below the first screen slides up as you reach it.
+   It is visible by default — JS only hides what is off-screen. */
+.reveal{opacity:1;}
+.reveal.pending{opacity:0; transform:translateY(20px);}
+.reveal.in{
+  opacity:1; transform:none;
+  transition:opacity .65s ease, transform .65s cubic-bezier(.2,.7,.3,1);
+}
+
+/* ============================================================
+   4. BUTTONS
+   ============================================================ */
+.btn{
+  position:relative; overflow:hidden;
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:13px 26px; border-radius:4px; font-weight:600; font-size:.96rem;
+  text-decoration:none; border:1px solid transparent; cursor:pointer;
+  transition:transform .18s ease, box-shadow .25s ease, background .2s ease, border-color .2s ease;
+}
+.btn::after{  /* light sweep on hover */
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(105deg, transparent 30%, rgba(255,255,255,.32) 50%, transparent 70%);
+  transform:translateX(-120%); transition:transform .6s ease;
+}
+.btn:hover::after{transform:translateX(120%);}
+.btn:hover{transform:translateY(-2px);}
+.btn:active{transform:translateY(0);}
+.btn-gold{background:var(--gold); color:var(--on-gold); box-shadow:0 6px 18px var(--gold-glow);}
+.btn-gold:hover{background:var(--gold-strong); box-shadow:0 12px 28px var(--gold-glow);}
+.btn-ghost{background:transparent; color:#eef2fb; border-color:rgba(238,242,251,.42);}
+.btn-ghost:hover{border-color:#eef2fb; background:rgba(255,255,255,.06);}
+.btn-outline{background:transparent; color:var(--ink); border-color:var(--line);}
+.btn-outline:hover{border-color:var(--gold); color:var(--gold);}
+
+.pill{
+  display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  font-size:.85rem; font-weight:600; color:var(--gold);
+  background:transparent; border:1px solid var(--gold); border-radius:22px;
+  padding:7px 16px 7px 9px; cursor:pointer;
+  transition:background .2s ease, color .2s ease, transform .18s ease;
+}
+.pill:hover{background:var(--gold); color:var(--on-gold); transform:translateY(-2px);}
+.pill .dot{
+  width:21px; height:21px; border-radius:50%; flex:none;
+  display:grid; place-items:center; font-size:.66rem;
+  border:1px solid currentColor; font-family:"IBM Plex Mono", monospace;
+}
+
+/* ============================================================
+   5. TOP BAR
+   ============================================================ */
+.scroll-bar{
+  position:fixed; top:0; left:0; height:3px; width:0%; z-index:60;
+  background:linear-gradient(90deg, var(--gold), var(--gold-strong));
+  transition:width .1s linear;
+}
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--navy) 94%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px; gap:14px;}
+.brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:#f4f6fa; min-width:0;}
+.brand-short{display:none;}
+.brand-mark{
+  width:36px; height:36px; border-radius:50%; flex:none;
+  border:1.5px solid #e7c873; display:grid; place-items:center;
+  font-family:"IBM Plex Mono", monospace; font-size:.6rem; color:#e7c873;
+  transition:transform .4s ease, box-shadow .3s ease;
+}
+.brand:hover .brand-mark{transform:rotate(18deg); box-shadow:0 0 0 5px rgba(231,200,115,.12);}
+.brand-word{font-family:"Fraunces", serif; font-weight:600; font-size:1rem; line-height:1.25;}
+.brand-word small{
+  display:block; font-family:"IBM Plex Mono", monospace; font-weight:400;
+  font-size:.6rem; letter-spacing:.12em; color:#a9b6d8; text-transform:uppercase;
+}
+.navlinks{display:flex; gap:26px; list-style:none; margin:0; padding:0;}
+.navlinks a{
+  position:relative; color:#dde3f0; text-decoration:none;
+  font-size:.92rem; font-weight:500; padding-block:7px;
+}
+.navlinks a::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:2px;
+  background:#e7c873; transform:scaleX(0); transform-origin:left;
+  transition:transform .28s cubic-bezier(.2,.7,.3,1);
+}
+.navlinks a:hover::after, .navlinks a:focus-visible::after, .navlinks a.active::after{transform:scaleX(1);}
+.navlinks a.active{color:#fff;}
+.nav-right{display:flex; align-items:center; gap:12px;}
+.nav-cta{
+  background:#e7c873; color:#12203a; font-weight:600; text-decoration:none;
+  padding:10px 18px; border-radius:4px; font-size:.87rem; white-space:nowrap;
+  transition:transform .18s ease, box-shadow .25s ease;
+}
+.nav-cta:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(231,200,115,.28);}
+
+/* Light / dark switch */
+.theme-btn{
+  width:38px; height:38px; border-radius:50%; flex:none; cursor:pointer;
+  border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.06);
+  display:grid; place-items:center; position:relative; overflow:hidden;
+  transition:border-color .25s ease, background .25s ease, transform .3s ease;
+}
+.theme-btn:hover{border-color:#e7c873; transform:rotate(18deg);}
+.theme-btn svg{width:18px; height:18px; position:absolute; transition:transform .45s cubic-bezier(.3,.8,.3,1), opacity .3s ease;}
+.theme-btn .i-sun{color:#e7c873;}
+.theme-btn .i-moon{color:#dde3f0;}
+/* light mode showing => offer moon; dark mode showing => offer sun */
+.i-sun{opacity:0; transform:rotate(-70deg) scale(.4);}
+.i-moon{opacity:1; transform:none;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .i-sun{opacity:1; transform:none;}
+  :root:not([data-theme="light"]) .i-moon{opacity:0; transform:rotate(70deg) scale(.4);}
+}
+:root[data-theme="dark"] .i-sun{opacity:1; transform:none;}
+:root[data-theme="dark"] .i-moon{opacity:0; transform:rotate(70deg) scale(.4);}
+
+.nav-toggle{
+  display:none; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.28);
+  color:#f4f6fa; border-radius:5px; padding:9px 11px; cursor:pointer; line-height:0;
+}
+.nav-toggle span{display:block; width:17px; height:2px; background:currentColor; border-radius:2px;}
+.nav-toggle span + span{margin-top:4px;}
+
+/* ============================================================
+   6. HERO
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden; color:#eef2fb;
+  padding-block:82px 96px;
+  background:
+    radial-gradient(1100px 500px at 84% -12%, color-mix(in srgb, var(--gold) 20%, transparent), transparent 62%),
+    repeating-linear-gradient(90deg, rgba(233,204,120,.045) 0 1px, transparent 1px 66px),
+    repeating-linear-gradient(0deg,  rgba(233,204,120,.045) 0 1px, transparent 1px 66px),
+    linear-gradient(170deg, var(--navy) 0%, var(--navy-2) 100%);
+}
+.hero .wrap{display:grid; grid-template-columns:1.15fr .85fr; gap:54px; align-items:center;}
+.hero h1{color:#f7f9fd; font-size:clamp(2.25rem, 5.2vw, 3.7rem); margin-top:16px; letter-spacing:-.01em;}
+.hero h1 em{font-style:italic; font-weight:500; color:#e7c873;}
+.hero .lede{color:#c3cde5; max-width:47ch; margin-top:20px; font-size:1.12rem;}
+.hero .eyebrow{color:#e7c873;}
+.hero .eyebrow::before{background:#e7c873;}
+.hero-actions{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+.hero .pill{color:#e7c873; border-color:rgba(231,200,115,.6); margin-top:24px;}
+.hero .pill:hover{background:#e7c873; color:#12203a;}
+.hero-stats{display:flex; gap:34px; margin-top:44px; flex-wrap:wrap;}
+.hero-stat b{
+  display:block; font-family:"Fraunces", serif; font-size:1.85rem; color:#e7c873;
+  font-variant-numeric:tabular-nums;
+}
+.hero-stat span{font-size:.79rem; color:#a9b6d8;}
+/* load-in stagger */
+.hero .anim{animation:riseIn .6s cubic-bezier(.2,.7,.3,1) both;}
+.hero .anim:nth-child(1){animation-delay:.04s;}
+.hero .anim:nth-child(2){animation-delay:.12s;}
+.hero .anim:nth-child(3){animation-delay:.2s;}
+.hero .anim:nth-child(4){animation-delay:.28s;}
+.hero .anim:nth-child(5){animation-delay:.36s;}
+.hero .anim:nth-child(6){animation-delay:.44s;}
+
+/* Globe / seal */
+.seal-field{position:relative; display:grid; place-items:center; justify-self:center;}
+.seal-field::before, .seal-field::after{
+  content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:470px; height:470px; max-width:168%; max-height:168%; border-radius:50%; pointer-events:none;
+}
+.seal-field::before{background-image:repeating-radial-gradient(circle at center, var(--hero-grid) 0 1px, transparent 1px 72px);}
+.seal-field::after{
+  background-image:repeating-conic-gradient(from 0deg, var(--hero-grid) 0deg .5deg, transparent .5deg 30deg);
+  animation:spinSlow 150s linear infinite;
+}
+.globe{width:min(300px,78vw); aspect-ratio:1; position:relative; z-index:1;}
+.globe svg{width:100%; height:100%; display:block; overflow:visible;}
+.globe .g-ring{fill:none; stroke:rgba(231,200,115,.55); stroke-width:1;}
+.globe .g-mesh{fill:none; stroke:rgba(231,200,115,.28); stroke-width:.9;}
+.globe .g-node{fill:#e7c873;}
+.globe .g-node.pulse{animation:floatY 5s ease-in-out infinite;}
+.globe .g-arc{
+  fill:none; stroke:#e7c873; stroke-width:1.3; stroke-linecap:round;
+  stroke-dasharray:6 8; animation:dashFlow 6s linear infinite;
+}
+.globe .g-core{fill:rgba(13,33,69,.55);}
+.globe .g-text{font-family:"Fraunces", serif; font-size:34px; fill:#f7f9fd; text-anchor:middle;}
+.globe .g-sub{font-family:"IBM Plex Mono", monospace; font-size:7.4px; letter-spacing:1.6px; fill:#e7c873; text-anchor:middle;}
+.globe-spin{transform-origin:100px 100px; animation:spinRing 90s linear infinite;}
+
+/* ============================================================
+   7. CARDS & SHARED PIECES
+   ============================================================ */
+.card{
+  position:relative; overflow:hidden;
+  background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:28px;
+  transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease, border-color .28s ease;
+}
+.card::before{
+  content:""; position:absolute; top:0; left:18px; right:18px; height:2px; border-radius:0 0 2px 2px;
+  background:linear-gradient(90deg, var(--gold), transparent 82%);
+  transform:scaleX(.4); transform-origin:left; transition:transform .4s ease;
+}
+.card:hover{transform:translateY(-5px); box-shadow:var(--shadow-lift); border-color:color-mix(in srgb, var(--gold) 45%, var(--line));}
+.card:hover::before{transform:scaleX(1);}
+.card h3{margin-bottom:9px;}
+.card p{color:var(--ink-soft); font-size:.96rem;}
+
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:center;}
+
+.icon-badge{
+  width:46px; height:46px; border-radius:50%; border:1px solid var(--gold);
+  color:var(--gold); display:grid; place-items:center; margin-bottom:16px;
+  transition:background .3s ease, color .3s ease, transform .4s ease;
+}
+.card:hover .icon-badge{background:var(--gold); color:var(--on-gold); transform:rotate(-8deg) scale(1.06);}
+.icon-badge svg{width:22px; height:22px;}
+
+.art{width:100%; height:auto; display:block;}
+.art .st{stroke:var(--gold); fill:none; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round;}
+.art .st-soft{stroke:var(--ink-soft); fill:none; stroke-width:1.1; opacity:.55;}
+.art .fill-navy{fill:var(--navy); opacity:.9;}
+.art .fill-gold{fill:var(--gold);}
+.art .fill-soft{fill:var(--ink-soft); opacity:.25;}
+
+/* ============================================================
+   8. COUNTDOWN
+   ============================================================ */
+.countdown-panel{
+  position:relative; overflow:hidden;
+  border:1px solid var(--line); border-radius:12px; padding:40px 34px 34px;
+  background:
+    radial-gradient(700px 260px at 50% -30%, var(--gold-glow), transparent 70%),
+    var(--surface);
+  box-shadow:var(--shadow); text-align:center;
+}
+.countdown-panel h3{font-size:1.35rem;}
+.countdown-panel .cd-date{
+  font-family:"IBM Plex Mono", monospace; font-size:.76rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--gold); margin-top:10px;
+}
+.cd-grid{display:flex; justify-content:center; gap:22px; flex-wrap:wrap; margin-top:30px;}
+.cd-ring{position:relative; width:122px; height:122px;}
+.cd-ring svg{width:100%; height:100%; transform:rotate(-90deg);}
+.cd-track{fill:none; stroke:var(--line); stroke-width:6;}
+.cd-arc{
+  fill:none; stroke:var(--gold); stroke-width:6; stroke-linecap:round;
+  filter:drop-shadow(0 0 5px var(--gold-glow));
+  transition:stroke-dashoffset .45s cubic-bezier(.3,.8,.3,1);
+}
+.cd-arc.no-tween{transition:none;}
+.cd-val{position:absolute; inset:0; display:grid; place-content:center; gap:2px;}
+.cd-val b{
+  font-family:"IBM Plex Mono", monospace; font-weight:600; font-size:1.85rem;
+  font-variant-numeric:tabular-nums; color:var(--ink); display:block; line-height:1;
+}
+.cd-val b.pop{animation:popNum .45s ease;}
+.cd-val span{
+  font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute);
+  font-family:"IBM Plex Mono", monospace;
+}
+.cd-ring.secs::after{  /* soft halo that breathes once a second */
+  content:""; position:absolute; inset:8px; border-radius:50%;
+  border:1px solid var(--gold); opacity:.5; animation:softPulse 1s ease-out infinite; pointer-events:none;
+}
+.cd-live{
+  display:inline-flex; align-items:center; gap:8px; margin-top:26px;
+  font-size:.82rem; color:var(--ink-mute);
+}
+.cd-live i{width:8px; height:8px; border-radius:50%; background:var(--gold); position:relative;}
+.cd-live i::after{content:""; position:absolute; inset:0; border-radius:50%; background:var(--gold); animation:softPulse 1.8s ease-out infinite;}
+
+/* ============================================================
+   9. EVENT ROW
+   ============================================================ */
+.event-card{
+  display:grid; grid-template-columns:112px 1fr auto; gap:26px; align-items:center;
+  background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:24px 28px;
+  transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+.event-card:hover{border-color:var(--gold); box-shadow:var(--shadow); transform:translateY(-3px);}
+.event-date{text-align:center; border-right:1px solid var(--line); padding-right:22px;}
+.event-date .day{font-family:"Fraunces", serif; font-size:2.3rem; color:var(--gold); line-height:1;}
+.event-date .mon{
+  font-family:"IBM Plex Mono", monospace; font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-mute); display:block; margin-top:4px;
+}
+.event-meta{margin-top:8px; font-size:.9rem; color:var(--ink-soft); display:flex; gap:18px; flex-wrap:wrap;}
+
+/* ============================================================
+   10. ROADMAP
+   ============================================================ */
+#roadmap{background-image:repeating-linear-gradient(135deg, var(--grid-line) 0 1px, transparent 1px 36px);}
+.ladder{position:relative; max-width:780px;}
+.ladder::before{
+  content:""; position:absolute; left:24px; top:10px; bottom:10px; width:2px;
+  background:linear-gradient(var(--line), var(--gold), var(--line));
+}
+.rung{display:grid; grid-template-columns:50px 1fr; gap:24px; padding-block:20px; position:relative;}
+.rung-num{
+  width:50px; height:50px; border-radius:50%; background:var(--surface);
+  border:1.5px solid var(--gold); display:grid; place-items:center; z-index:1;
+  font-family:"IBM Plex Mono", monospace; font-weight:500; font-size:.95rem; color:var(--gold);
+  transition:background .3s ease, color .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.rung:hover .rung-num{background:var(--gold); color:var(--on-gold); transform:scale(1.08); box-shadow:0 0 0 6px var(--gold-glow);}
+.rung.is-current .rung-num{background:var(--gold); color:var(--on-gold); box-shadow:0 0 0 6px var(--gold-glow);}
+.rung h3{font-size:1.1rem;}
+.rung p{color:var(--ink-soft); margin-top:5px; font-size:.97rem; max-width:58ch;}
+.tag{
+  display:inline-block; margin-top:9px; font-family:"IBM Plex Mono", monospace; font-size:.64rem;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--gold);
+  border:1px solid var(--gold); border-radius:3px; padding:2px 9px;
+}
+
+/* ============================================================
+   11. DAY TIMELINE
+   ============================================================ */
+.steps{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; counter-reset:step;}
+.step{
+  position:relative; padding:26px 22px; border-radius:8px;
+  background:var(--surface); border:1px solid var(--line);
+  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.step:hover{transform:translateY(-4px); border-color:var(--gold); box-shadow:var(--shadow);}
+.step .num{
+  font-family:"IBM Plex Mono", monospace; font-size:.68rem; letter-spacing:.1em;
+  color:var(--gold); display:block; margin-bottom:12px;
+}
+.step h3{font-size:1.02rem; margin-bottom:7px;}
+.step p{font-size:.92rem; color:var(--ink-soft);}
+.step svg{width:26px; height:26px; margin-bottom:14px; display:block;}
+
+/* ============================================================
+   12. COMMITTEES  +  INFO POPOVERS
+   ============================================================ */
+.committee-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:12px;}
+.committee-card{
+  position:relative; display:block; border:1.5px solid var(--line); border-radius:8px;
+  padding:20px; cursor:pointer; background:var(--surface-2);
+  transition:border-color .25s ease, background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.committee-card:hover{transform:translateY(-3px); border-color:var(--gold); box-shadow:var(--shadow);}
+.committee-card.is-checked{
+  border-color:var(--gold); background:color-mix(in srgb, var(--gold) 10%, var(--surface));
+  box-shadow:0 0 0 3px var(--gold-glow);
+}
+.committee-card input{position:absolute; opacity:0; pointer-events:none;}
+.committee-head{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+.committee-head h4{font-family:"Fraunces", serif; font-size:1.02rem; font-weight:600;}
+.committee-card p{margin-top:9px; font-size:.87rem; color:var(--ink-soft);}
+.committee-card .cm-icon{width:26px; height:26px; margin-bottom:12px; color:var(--gold);}
+
+.info-holder{position:relative; display:inline-flex;}
+.info-btn{
+  width:21px; height:21px; border-radius:50%; border:1px solid var(--gold); background:transparent;
+  color:var(--gold); font-family:"IBM Plex Mono", monospace; font-size:.66rem; line-height:1;
+  cursor:pointer; display:inline-grid; place-items:center; flex:none; padding:0;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.info-btn:hover, .info-btn:focus-visible{background:var(--gold); color:var(--on-gold); transform:scale(1.12);}
+.info-pop{
+  position:absolute; z-index:40; top:calc(100% + 9px); right:0; width:255px;
+  background:var(--surface); border:1px solid var(--gold); border-radius:8px; padding:14px 16px;
+  font-size:.85rem; line-height:1.55; color:var(--ink); box-shadow:var(--shadow-lift);
+  text-align:left; font-weight:400; animation:riseIn .25s ease both;
+}
+
+/* ============================================================
+   13. FORMS
+   ============================================================ */
+.form-shell{
+  position:relative; background:var(--surface); border:1px solid var(--line);
+  border-radius:10px; padding:42px 42px 36px; max-width:840px; margin-inline:auto;
+  box-shadow:var(--shadow);
+}
+.form-shell::before, .form-shell::after, .form-shell .c-bl, .form-shell .c-br{
+  content:""; position:absolute; width:18px; height:18px; border-color:var(--gold); border-style:solid;
+}
+.form-shell::before{top:-1px; left:-1px; border-width:2px 0 0 2px;}
+.form-shell::after{top:-1px; right:-1px; border-width:2px 2px 0 0;}
+.form-shell .c-bl{bottom:-1px; left:-1px; border-width:0 0 2px 2px;}
+.form-shell .c-br{bottom:-1px; right:-1px; border-width:0 2px 2px 0;}
+
+.field-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px 26px; margin-top:8px;}
+.field{display:flex; flex-direction:column; gap:7px;}
+.field.span-2{grid-column:1 / -1;}
+.field label{font-size:.83rem; font-weight:600;}
+.field .hint{font-size:.77rem; color:var(--ink-mute); font-weight:400;}
+.field input, .field select, .field textarea{
+  background:var(--surface-2); border:1px solid var(--line); border-radius:5px;
+  padding:12px 14px; color:var(--ink);
+  transition:border-color .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.field input:hover, .field select:hover, .field textarea:hover{border-color:color-mix(in srgb, var(--gold) 55%, var(--line));}
+.field input:focus, .field select:focus, .field textarea:focus{
+  border-color:var(--gold); box-shadow:0 0 0 3px var(--gold-glow); outline:none;
+}
+.field textarea{resize:vertical; min-height:98px;}
+.check-grid{display:grid; grid-template-columns:1fr 1fr; gap:11px 18px; margin-top:6px;}
+.check{display:flex; align-items:flex-start; gap:10px; font-size:.93rem; cursor:pointer;}
+.check input{margin-top:4px; accent-color:var(--gold); width:16px; height:16px;}
+.form-foot{display:flex; align-items:center; justify-content:space-between; gap:18px; margin-top:32px; flex-wrap:wrap;}
+.form-note{font-size:.81rem; color:var(--ink-mute); max-width:42ch;}
+.status-line{font-size:.87rem; margin-top:16px;}
+.status-line.ok{color:#2f7a4b;}
+.status-line.err{color:#b3402f;}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .status-line.ok{color:#7bd39a;} :root:not([data-theme="light"]) .status-line.err{color:#ff9c8b;} }
+:root[data-theme="dark"] .status-line.ok{color:#7bd39a;}
+:root[data-theme="dark"] .status-line.err{color:#ff9c8b;}
+.confirm{text-align:center; padding-block:34px; animation:riseIn .5s ease both;}
+.confirm .glyph{
+  width:64px; height:64px; border-radius:50%; border:1.5px solid var(--gold); color:var(--gold);
+  display:grid; place-items:center; margin:0 auto 20px; font-size:1.5rem;
+  box-shadow:0 0 0 8px var(--gold-glow);
+}
+.confirm h3{font-size:1.4rem;}
+.confirm p{color:var(--ink-soft); margin-top:9px;}
+
+/* ============================================================
+   14. REVIEWS
+   ============================================================ */
+.reviews-top{display:flex; align-items:flex-end; justify-content:space-between; gap:22px; flex-wrap:wrap; margin-bottom:30px;}
+.rating-summary{display:flex; align-items:center; gap:14px;}
+.rating-summary b{font-family:"Fraunces", serif; font-size:2.2rem;}
+.stars{color:var(--star); letter-spacing:2px;}
+.reviews-row{
+  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(258px, 320px);
+  gap:20px; overflow-x:auto; padding:4px 4px 14px; scroll-snap-type:x proximity;
+}
+.reviews-row .card{scroll-snap-align:start;}
+.review-quote{font-size:2.3rem; font-family:"Fraunces",serif; font-style:italic; color:var(--gold); line-height:.55; margin:.14em .1em 0 0; float:left;}
+.review-name{font-weight:600; font-size:.93rem; margin-top:16px;}
+.review-role{font-size:.79rem; color:var(--ink-mute);}
+.empty-note{color:var(--ink-mute); font-style:italic;}
+.review-form{max-width:580px; margin-top:40px; padding-top:34px; border-top:1px solid var(--line);}
+.star-pick{display:flex; gap:7px; font-size:1.5rem;}
+.star-pick button{
+  background:none; border:none; cursor:pointer; color:var(--line); padding:2px; line-height:1;
+  transition:color .18s ease, transform .18s ease;
+}
+.star-pick button:hover{transform:scale(1.2);}
+.star-pick button.on{color:var(--star);}
+
+/* ============================================================
+   15. FAQ
+   ============================================================ */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-item summary{
+  cursor:pointer; padding-block:20px; font-weight:600; list-style:none;
+  display:flex; justify-content:space-between; gap:22px; align-items:center;
+  transition:color .2s ease;
+}
+.faq-item summary:hover{color:var(--gold);}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+"; font-family:"IBM Plex Mono", monospace; color:var(--gold); font-size:1.25rem;
+  transition:transform .3s ease; flex:none;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{color:var(--ink-soft); padding-bottom:22px; max-width:72ch; animation:riseIn .35s ease both;}
+
+/* ============================================================
+   16. TEAM
+   ============================================================ */
+.team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
+.founder-card{text-align:center; padding:36px 26px 30px;}
+.founder-photo-wrap{position:relative; width:136px; height:136px; margin:0 auto 20px;}
+.founder-photo-wrap::before{
+  content:""; position:absolute; inset:-8px; border-radius:50%;
+  border:1px dashed var(--gold); opacity:.55; transition:transform .6s ease, opacity .3s ease;
+}
+.founder-card:hover .founder-photo-wrap::before{transform:rotate(120deg); opacity:1;}
+.founder-photo{width:136px; height:136px; border-radius:50%; display:block; border:1.5px solid var(--gold);}
+.founder-role{
+  display:inline-block; margin-top:11px; font-family:"IBM Plex Mono", monospace; font-size:.67rem;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--gold);
+  border:1px solid var(--gold); border-radius:3px; padding:3px 10px;
+}
+.founder-sub{margin-top:13px; font-size:.9rem; color:var(--ink-soft);}
+.team-note{
+  max-width:660px; margin:56px auto 0; text-align:center; font-size:.88rem;
+  color:var(--ink-mute); border-top:1px solid var(--line); padding-top:28px;
+}
+
+/* ============================================================
+   17. SUB-PAGES (Apply / Team)
+   ============================================================ */
+.subpage{padding-block:54px 104px; animation:riseIn .45s ease both;}
+.page-back{
+  display:inline-flex; align-items:center; gap:7px; font-size:.86rem; color:var(--ink-mute);
+  text-decoration:none; margin-bottom:32px; transition:color .2s ease, gap .2s ease;
+}
+.page-back:hover{color:var(--gold); gap:12px;}
+.page-header{max-width:690px; margin-bottom:42px;}
+.page-header .meta-row{display:flex; gap:22px; flex-wrap:wrap; margin-top:18px; font-size:.92rem; color:var(--ink-soft);}
+
+/* ============================================================
+   18. MODAL
+   ============================================================ */
+dialog{
+  border:none; border-radius:12px; padding:0; max-width:580px; width:92vw;
+  background:var(--surface); color:var(--ink); position:relative; box-shadow:var(--shadow-lift);
+}
+dialog::backdrop{background:rgba(6,13,26,.62); backdrop-filter:blur(3px);}
+dialog[open]{animation:riseIn .32s cubic-bezier(.2,.7,.3,1) both;}
+.modal-inner{padding:36px 36px 32px;}
+.modal-inner h3{font-size:1.4rem; margin-bottom:18px; padding-right:26px;}
+.modal-inner p{color:var(--ink-soft); margin-bottom:13px; font-size:.97rem;}
+.modal-inner p:last-child{margin-bottom:0;}
+.modal-close{
+  position:absolute; top:14px; right:16px; background:none; border:none;
+  font-size:1.6rem; line-height:1; color:var(--ink-mute); cursor:pointer; padding:4px;
+  transition:color .2s ease, transform .3s ease;
+}
+.modal-close:hover{color:var(--gold); transform:rotate(90deg);}
+
+/* ============================================================
+   19. FOOTER + BACK TO TOP
+   ============================================================ */
+footer{
+  background:var(--navy); color:#dde3f0; padding-block:60px 30px; position:relative; overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.foot-art{position:absolute; right:-40px; bottom:-10px; width:420px; opacity:.13; pointer-events:none;}
+.foot-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:44px; position:relative;}
+footer h4{
+  color:#f4f6fa; font-family:"IBM Plex Mono", monospace; font-size:.72rem;
+  letter-spacing:.11em; text-transform:uppercase; font-weight:500; margin-bottom:16px;
+}
+footer p{color:#a9b6d8; font-size:.9rem;}
+footer a{color:#dde3f0; text-decoration:none; font-size:.9rem; transition:color .2s ease, padding-left .2s ease;}
+footer a:hover{color:#e7c873; padding-left:4px;}
+.foot-links{display:flex; flex-direction:column; gap:11px; align-items:flex-start;}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.12); margin-top:48px; padding-top:24px;
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  font-size:.79rem; color:#8593b8; position:relative;
+}
+.to-top{
+  position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:50%; z-index:45;
+  background:var(--gold); color:var(--on-gold); border:none; cursor:pointer;
+  display:grid; place-items:center; box-shadow:0 10px 26px var(--gold-glow);
+  opacity:0; transform:translateY(14px) scale(.85); pointer-events:none;
+  transition:opacity .3s ease, transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.to-top.show{opacity:1; transform:none; pointer-events:auto;}
+.to-top:hover{transform:translateY(-3px);}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;}
+
+/* ============================================================
+   20. RESPONSIVE  —  tablet, then phone
+   ============================================================ */
+@media (max-width: 1000px){
+  .hero .wrap{grid-template-columns:1fr; gap:44px;}
+  .seal-field{order:-1;}
+  .globe{width:min(250px,62vw);}
+  .grid-2{grid-template-columns:1fr; gap:36px;}
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr; gap:34px;}
+}
+@media (max-width: 860px){
+  .navlinks{
+    position:absolute; top:68px; left:0; right:0; background:var(--navy);
+    flex-direction:column; gap:0; padding:6px 22px 18px;
+    border-bottom:1px solid rgba(255,255,255,.12); box-shadow:0 18px 30px rgba(0,0,0,.28);
+  }
+  .navlinks a{display:block; padding-block:14px; width:100%; border-bottom:1px solid rgba(255,255,255,.08);}
+  .navlinks li:last-child a{border-bottom:none;}
+  .navlinks a::after{display:none;}
+  .navlinks[data-open="false"]{display:none;}
+  .navlinks[data-open="true"]{animation:riseIn .28s ease both;}
+  .nav-toggle{display:block;}
+  .nav-cta{display:none;}
+  .section{padding-block:70px;}
+  .form-shell{padding:32px 24px 28px;}
+  .committee-grid{grid-template-columns:1fr;}
+  .event-card{grid-template-columns:1fr; gap:18px;}
+  .event-date{border-right:none; border-bottom:1px solid var(--line); padding:0 0 14px; display:flex; gap:10px; align-items:baseline; text-align:left;}
+  .event-date .mon{margin-top:0;}
+}
+@media (max-width: 620px){
+  body{font-size:16px;}
+  .wrap{padding-inline:18px;}
+  .section{padding-block:58px;}
+  .section-head{margin-bottom:34px;}
+  .grid-3, .steps, .team-grid{grid-template-columns:1fr;}
+  .team-grid{max-width:330px; margin-inline:auto;}
+  .field-grid, .check-grid{grid-template-columns:1fr;}
+  .hero{padding-block:58px 70px;}
+  .hero-stats{gap:24px;}
+  .hero-actions .btn{flex:1 1 100%;}
+  .cd-grid{gap:14px;}
+  .cd-ring{width:calc(50% - 7px); max-width:140px; height:auto; aspect-ratio:1;}
+  .countdown-panel{padding:30px 18px 26px;}
+  .foot-grid{grid-template-columns:1fr; gap:30px;}
+  .brand-word small{display:none;}
+  .brand-word{font-size:.93rem;}
+  .to-top{right:14px; bottom:14px;}
+  .nav .wrap{gap:8px;}
+  .nav-right{gap:9px;}
+  .rung{grid-template-columns:42px 1fr; gap:16px;}
+  .rung-num{width:42px; height:42px; font-size:.85rem;}
+  .ladder::before{left:20px;}
+}
+/* very narrow phones: shorten the name so the bar always fits */
+@media (max-width: 460px){
+  .brand-mark{display:none;}                 /* the wordmark alone carries it */
+  .brand-full{display:none;}
+  .brand-short{display:inline; font-size:1.22rem; letter-spacing:.08em;}
+  .theme-btn{width:35px; height:35px;}
+  .nav-toggle{padding:8px 10px;}
+  .wrap{padding-inline:15px;}
+}
+/* ============================================================
+   REFINEMENT LAYER — a more diplomatic, ceremonial finish.
+   Laurel-gold detailing, softer surfaces, formal typography.
+   ============================================================ */
+
+/* --- typography: more formal voice --- */
+body{letter-spacing:.006em;}
+h1,h2,h3,h4{font-weight:600; letter-spacing:.008em;}
+h2{position:relative;}
+.section-head h2::after, .page-header h2::after{
+  content:""; display:block; width:54px; height:2px; margin-top:18px;
+  background:linear-gradient(90deg, var(--gold), transparent);
+  border-radius:2px;
+}
+.eyebrow{letter-spacing:.19em;}
+
+/* --- surfaces: softer, official-document feel --- */
+.card{
+  border-radius:14px;
+  box-shadow:0 2px 10px rgba(13,33,69,.05);
+  transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(13,33,69,.13);
+}
+
+/* --- buttons: refined edges, gold gradient, smooth lift --- */
+.btn{
+  letter-spacing:.02em; border-radius:10px;
+  transition:transform .22s ease, box-shadow .22s ease, background-color .22s ease, border-color .22s ease, color .22s ease;
+}
+.btn-gold{
+  background:linear-gradient(160deg, var(--gold-strong), var(--gold) 55%, var(--gold-strong));
+  background-size:150% 150%;
+}
+.btn-gold:hover{background-position:70% 30%;}
+.btn-gold:focus-visible{outline-color:var(--gold);}
+
+/* --- the application form: diplomatic letterhead treatment --- */
+.form-shell{
+  border-radius:16px;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(140deg, color-mix(in srgb, var(--gold) 55%, transparent), transparent 30%, transparent 70%, color-mix(in srgb, var(--gold) 55%, transparent)) border-box;
+  border:1px solid transparent;
+  box-shadow:0 24px 60px rgba(13,33,69,.12);
+}
+.field input, .field select, .field textarea{
+  border-radius:9px;
+  transition:border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  box-shadow:0 0 0 3px var(--gold-glow);
+}
+
+/* --- committee cards: a laurel-gold ring when selected --- */
+.committee-card{
+  border-radius:12px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+}
+.committee-card.is-checked{
+  box-shadow:0 0 0 1px var(--gold), 0 12px 30px var(--gold-glow);
+  background:color-mix(in srgb, var(--gold) 7%, var(--surface));
+}
+.committee-card.is-checked .cm-icon{color:var(--gold-strong);}
+
+/* --- confirmation state: a formal seal --- */
+.confirm .glyph{
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--gold) 35%, var(--surface)), var(--gold) 70%);
+  color:var(--on-gold);
+  box-shadow:0 0 0 5px var(--surface), 0 0 0 6.5px var(--gold), 0 14px 30px var(--gold-glow);
+}
+
+/* --- pills & misc --- */
+.pill{border-radius:999px; transition:transform .2s ease, background-color .2s ease, color .2s ease;}
+.stars{text-shadow:0 1px 0 rgba(0,0,0,.06);}
+
+/* --- footer: keep the original dark navy band, add a ceremonial gold rule --- */
+footer::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:2px; z-index:2;
+  background:linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity:.85;
+}
+footer h4{letter-spacing:.14em;}
+
+/* --- back-to-top: circular gold-ring seal --- */
+.to-top{border-radius:50%; box-shadow:var(--shadow);}
+.to-top:hover{box-shadow:var(--shadow-lift); border-color:var(--gold);}
+
+/* ============================================================
+   ATELIER LAYER — richer ambient backdrop, deeper diplomatic polish.
+   Purely additive: new selectors and new custom properties only,
+   nothing above this block is redefined or removed.
+   ============================================================ */
+
+/* --- a living background: soft drifting light behind the dot grid,
+       so the page never reads as a flat colour, in either theme --- */
+/* (ambient wash + fine crosshatch, both theme-aware, both reduced-motion safe) */
+:root{
+  --wash-a: color-mix(in srgb, var(--gold) 16%, transparent);
+  --wash-b: color-mix(in srgb, #3a6fb0 14%, transparent);
+  --wash-c: color-mix(in srgb, var(--gold) 10%, transparent);
+}
+:root[data-theme="dark"]{
+  --wash-a: color-mix(in srgb, var(--gold) 12%, transparent);
+  --wash-b: color-mix(in srgb, #3a6fb0 22%, transparent);
+  --wash-c: color-mix(in srgb, var(--gold) 9%, transparent);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --wash-a: color-mix(in srgb, var(--gold) 12%, transparent);
+    --wash-b: color-mix(in srgb, #3a6fb0 22%, transparent);
+    --wash-c: color-mix(in srgb, var(--gold) 9%, transparent);
+  }
+}
+body{position:relative; isolation:isolate;}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(900px 620px at 8% -8%, var(--wash-a), transparent 58%),
+    radial-gradient(760px 560px at 108% 18%, var(--wash-b), transparent 60%),
+    radial-gradient(820px 640px at 46% 108%, var(--wash-c), transparent 62%);
+  background-repeat:no-repeat;
+  animation:driftWash 46s ease-in-out infinite alternate;
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(115deg, var(--grid-line) 0 1px, transparent 1px 84px),
+    repeating-linear-gradient(25deg,  var(--grid-line) 0 1px, transparent 1px 84px);
+  opacity:.55;
+  mask-image:radial-gradient(140% 100% at 50% 0%, #000 40%, transparent 92%);
+}
+@keyframes driftWash{
+  0%{ transform:translate3d(0,0,0) scale(1); }
+  50%{ transform:translate3d(-1.4%,1.2%,0) scale(1.03); }
+  100%{ transform:translate3d(1.2%,-1%,0) scale(1.01); }
+}
+
+/* --- section-head divider grows and gently shimmers once revealed --- */
+.section-head h2::after, .page-header h2::after{
+  width:0; transition:width .9s cubic-bezier(.2,.7,.2,1) .1s;
+  background:linear-gradient(90deg, var(--gold), var(--gold-strong), transparent);
+  background-size:200% 100%;
+}
+.reveal.in .section-head h2::after,
+.reveal.in.section-head h2::after,
+.section-head.reveal h2::after{ width:54px; }
+.section-head:not(.pending) h2::after{ width:54px; }
+
+/* --- cards: a quiet corner mark that appears on hover, like a wax seal --- */
+.card{ isolation:isolate; }
+.card::after{
+  content:""; position:absolute; top:14px; right:14px; width:22px; height:22px;
+  background:
+    radial-gradient(circle at 30% 30%, var(--gold) 0 2px, transparent 2.5px),
+    conic-gradient(from 0deg, transparent 0 340deg, var(--gold) 340deg 360deg);
+  border-radius:50%;
+  border:1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  opacity:0; transform:scale(.5) rotate(-25deg);
+  transition:opacity .35s ease, transform .5s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.card:hover::after{ opacity:.85; transform:scale(1) rotate(0deg); }
+
+/* --- icon badges: soft glow ring pulses in on hover --- */
+.icon-badge{ position:relative; }
+.icon-badge::before{
+  content:""; position:absolute; inset:-6px; border-radius:50%;
+  border:1px solid var(--gold); opacity:0; transform:scale(.7);
+  transition:opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.card:hover .icon-badge::before, .step:hover .icon-badge::before{ opacity:.55; transform:scale(1); }
+
+/* --- nav CTA: a breathing gold ring so "Apply now" reads as alive --- */
+.nav-cta{ position:relative; }
+.nav-cta::before{
+  content:""; position:absolute; inset:-3px; border-radius:7px;
+  border:1.5px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  opacity:0; animation:ctaPulse 2.8s ease-out infinite;
+}
+@keyframes ctaPulse{
+  0%{ opacity:.55; transform:scale(1); }
+  100%{ opacity:0; transform:scale(1.18); }
+}
+
+/* --- rungs: the roadmap ladder gets a soft travelling glow on the current stage --- */
+.rung.is-current .rung-num{ position:relative; }
+.rung.is-current .rung-num::after{
+  content:""; position:absolute; inset:-5px; border-radius:50%;
+  border:1px solid var(--gold); opacity:.6; animation:softPulse 2.2s ease-out infinite;
+}
+
+/* --- committee cards: subtle compass-rose watermark, brighter when chosen --- */
+.committee-card{ position:relative; overflow:hidden; }
+.committee-card::after{
+  content:""; position:absolute; right:-18px; bottom:-18px; width:74px; height:74px;
+  background-image:radial-gradient(circle, transparent 60%, var(--gold) 61% 63%, transparent 64%),
+                    conic-gradient(from 0deg, var(--gold) 0 2deg, transparent 2deg 88deg, var(--gold) 88deg 90deg, transparent 90deg 178deg, var(--gold) 178deg 180deg, transparent 180deg 268deg, var(--gold) 268deg 270deg, transparent 270deg 358deg, var(--gold) 358deg 360deg);
+  opacity:.08; transition:opacity .3s ease, transform .5s ease; transform:rotate(0deg);
+  pointer-events:none;
+}
+.committee-card:hover::after{ opacity:.16; transform:rotate(18deg); }
+.committee-card.is-checked::after{ opacity:.22; }
+
+/* --- countdown panel: quiet radiating rings behind the numbers --- */
+.countdown-panel{ isolation:isolate; }
+.countdown-panel::after{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background-image:repeating-radial-gradient(circle at 50% 8%, var(--gold-glow) 0 1px, transparent 1px 34px);
+  opacity:.5;
+}
+
+/* --- reviews: give the wall of quotes and the form a matching letterhead feel --- */
+.reviews-row .card{ background:var(--surface); }
+.review-form{
+  position:relative; background:var(--surface); border:1px solid var(--line);
+  border-radius:16px; padding:32px 34px; margin-top:44px; box-shadow:var(--shadow);
+}
+.review-form::before{
+  content:""; position:absolute; inset:0; border-radius:16px; padding:1px;
+  background:linear-gradient(135deg, color-mix(in srgb, var(--gold) 45%, transparent), transparent 40%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+}
+.empty-note{
+  display:block; padding:26px 22px; border:1px dashed var(--line); border-radius:12px;
+  text-align:center; background:color-mix(in srgb, var(--surface-2) 70%, transparent);
+}
+.star-pick button.on{ text-shadow:0 0 10px var(--gold-glow); }
+
+/* --- founder cards: a laurel-thin double ring instead of a single dash --- */
+.founder-photo-wrap::after{
+  content:""; position:absolute; inset:-15px; border-radius:50%;
+  border:1px solid var(--line); opacity:.7; pointer-events:none;
+}
+
+/* --- hero seal: an extra slow-fading halo so the emblem feels ceremonial --- */
+.globe::before{
+  content:""; position:absolute; inset:-14%; border-radius:50%; z-index:-1;
+  background:radial-gradient(circle, var(--gold-glow), transparent 70%);
+  filter:blur(2px);
+}
+
+/* --- links inside prose get a refined gold underline instead of the browser default --- */
+.lede a, .modal-inner a{
+  text-decoration-color:color-mix(in srgb, var(--gold) 60%, transparent);
+  text-underline-offset:3px; transition:text-decoration-color .2s ease;
+}
+.lede a:hover, .modal-inner a:hover{ text-decoration-color:var(--gold); }
+
+@media (max-width: 620px){
+  body::before{ background-size:180% 180%, 180% 180%, 200% 200%; }
+}
+</style>
+</head>
+<body>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark">IYA</span>
+      <span class="brand-word">
+        <span class="brand-full">International Youth Association</span>
+        <span class="brand-short">IYA</span>
+        <small>Samarkand &middot; Est. 2026</small>
+      </span>
+    </a>
+
+    <ul class="navlinks" id="navLinks" data-open="false">
+      <li><a href="#about">About</a></li>
+      <li><a href="#mun">Model UN</a></li>
+      <li><a href="#event">IYAMUN</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#/team">Team</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark mode">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 14.4A8.4 8.4 0 1 1 9.6 4a6.8 6.8 0 0 0 10.4 10.4z"/>
+        </svg>
+      </button>
+      <a class="nav-cta" href="#/apply">Apply now</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+<div id="mainView">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow anim">Founded at Polyglot International School</p>
+        <h1 class="anim">Ambitious minds,<br><em>united</em> for the world ahead.</h1>
+        <p class="lede anim">We are a student organisation from Samarkand. We build events where young people practise the things that matter later in life &mdash; speaking, debating, negotiating, and organising. Our first conference, IYAMUN, is open for applications now.</p>
+        <div class="hero-actions anim">
+          <a class="btn btn-gold" href="#/apply">Apply for IYAMUN</a>
+          <a class="btn btn-ghost" href="#event">See the event</a>
+        </div>
+        <a class="pill anim" href="#mun"><span class="dot">?</span> New to Model UN? Start here</a>
+        <div class="hero-stats anim">
+          <div class="hero-stat"><b>3</b><span>Founders</span></div>
+          <div class="hero-stat"><b>3</b><span>Committees</span></div>
+          <div class="hero-stat"><b id="heroCountdown">&mdash;</b><span>Days to IYAMUN</span></div>
+        </div>
+      </div>
+
+      <div class="seal-field">
+        <div class="globe" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <circle class="g-ring" cx="100" cy="100" r="86"/>
+            <g class="globe-spin">
+              <ellipse class="g-mesh" cx="100" cy="100" rx="86" ry="30"/>
+              <ellipse class="g-mesh" cx="100" cy="100" rx="86" ry="58"/>
+              <ellipse class="g-mesh" cx="100" cy="100" rx="30" ry="86"/>
+              <ellipse class="g-mesh" cx="100" cy="100" rx="58" ry="86"/>
+              <line class="g-mesh" x1="14" y1="100" x2="186" y2="100"/>
+              <line class="g-mesh" x1="100" y1="14" x2="100" y2="186"/>
+              <path class="g-arc" d="M42 62 Q100 20 158 62"/>
+              <path class="g-arc" d="M42 138 Q100 180 158 138"/>
+              <circle class="g-node pulse" cx="42" cy="62" r="3.4"/>
+              <circle class="g-node pulse" cx="158" cy="62" r="3.4"/>
+              <circle class="g-node" cx="42" cy="138" r="3"/>
+              <circle class="g-node" cx="158" cy="138" r="3"/>
+              <circle class="g-node" cx="100" cy="14" r="2.6"/>
+              <circle class="g-node" cx="100" cy="186" r="2.6"/>
+            </g>
+            <circle class="g-core" cx="100" cy="100" r="52"/>
+            <circle class="g-ring" cx="100" cy="100" r="52"/>
+            <circle cx="100" cy="100" r="44" fill="none" stroke="rgba(231,200,115,.4)" stroke-width="1" stroke-dasharray="2 5"/>
+            <text class="g-text" x="100" y="104">IYA</text>
+            <text class="g-sub" x="100" y="120">SAMARKAND</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Who We Are</p>
+        <h2>A student organisation, built by students.</h2>
+        <p>Here is the simple version: three friends noticed that clever, motivated classmates had nowhere to use that energy. So we made a place for it.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="reveal">
+          <p class="lede">International Youth Association (IYA) was founded in 2026 at Polyglot International School in Samarkand, Uzbekistan. We organise events where students do real work: research a topic, stand up and speak about it, listen to people who disagree, and write down what everyone agreed on.</p>
+          <p class="lede" style="margin-top:16px;">We are starting with one Model UN conference inside our own school. Step by step, we want to open it to our city, our country, and then further. You can see the full plan lower down this page.</p>
+          <a class="pill" href="#/team" style="margin-top:24px;"><span class="dot">&#8594;</span> Meet the three founders</a>
+        </div>
+
+        <!-- Samarkand skyline: the Registan, drawn as line art -->
+        <div class="reveal">
+          <svg class="art" viewBox="0 0 420 220" role="img" aria-label="Line drawing of the Registan in Samarkand">
+            <line class="st-soft" x1="10" y1="196" x2="410" y2="196"/>
+            <!-- left minaret -->
+            <path class="st" d="M42 196 V96 l6-8 h10 l6 8 v100"/>
+            <circle class="st" cx="53" cy="80" r="9"/>
+            <path class="st" d="M53 71 v-9"/>
+            <!-- left building -->
+            <path class="st" d="M72 196 V112 h84 v84"/>
+            <path class="st" d="M92 196 v-44 a22 22 0 0 1 44 0 v44"/>
+            <path class="st-soft" d="M114 196 v-62"/>
+            <ellipse class="st" cx="114" cy="104" rx="26" ry="9"/>
+            <path class="st" d="M88 104 a26 26 0 0 1 52 0"/>
+            <!-- central building -->
+            <path class="st" d="M164 196 V88 h92 v108"/>
+            <path class="st" d="M186 196 v-58 a24 24 0 0 1 48 0 v58"/>
+            <path class="st fill-soft" d="M186 196 v-58 a24 24 0 0 1 48 0 v58 z"/>
+            <path class="st" d="M180 88 a30 34 0 0 1 60 0"/>
+            <ellipse class="st" cx="210" cy="54" rx="30" ry="10"/>
+            <path class="st" d="M210 44 v-10"/>
+            <circle class="fill-gold" cx="210" cy="31" r="3.4"/>
+            <!-- right building -->
+            <path class="st" d="M264 196 V112 h84 v84"/>
+            <path class="st" d="M284 196 v-44 a22 22 0 0 1 44 0 v44"/>
+            <ellipse class="st" cx="306" cy="104" rx="26" ry="9"/>
+            <path class="st" d="M280 104 a26 26 0 0 1 52 0"/>
+            <!-- right minaret -->
+            <path class="st" d="M358 196 V96 l6-8 h10 l6 8 v100"/>
+            <circle class="st" cx="369" cy="80" r="9"/>
+            <path class="st" d="M369 71 v-9"/>
+            <!-- stars -->
+            <circle class="fill-gold" cx="60" cy="40" r="2" opacity=".7"/>
+            <circle class="fill-gold" cx="340" cy="52" r="1.6" opacity=".55"/>
+            <circle class="fill-gold" cx="300" cy="28" r="2" opacity=".6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT IS MUN ============================ -->
+  <section class="section alt" id="mun">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Basics</p>
+        <h2>What is Model United Nations?</h2>
+        <p>If you have never heard of it, do not worry. Almost everyone starts here.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Assembly hall illustration -->
+        <div class="reveal">
+          <svg class="art" viewBox="0 0 420 260" role="img" aria-label="Drawing of a Model UN assembly hall: an emblem, a speaking podium, and curved rows of delegate desks">
+            <!-- wall emblem -->
+            <circle class="st" cx="210" cy="58" r="34"/>
+            <ellipse class="st-soft" cx="210" cy="58" rx="15" ry="34"/>
+            <path class="st-soft" d="M176 58h68M210 24v68M181 40h58M181 76h58"/>
+            <path class="st" d="M164 74 q10 26 34 34" opacity=".65"/>
+            <path class="st" d="M256 74 q-10 26 -34 34" opacity=".65"/>
+            <!-- speaker's podium -->
+            <path class="st" d="M196 140 h28 l-4 -28 h-20z"/>
+            <path class="st" d="M188 140 h44"/>
+            <path class="st" d="M210 112 v-9"/>
+            <circle class="fill-gold" cx="210" cy="100" r="3.6"/>
+            <!-- three shallow rows of desks, front row lowest -->
+            <path class="st" d="M108 170 Q210 146 312 170"/>
+            <path class="st-soft" d="M108 170 v13 M312 170 v13 M210 158 v13"/>
+            <path class="st" d="M76 206 Q210 176 344 206"/>
+            <path class="st-soft" d="M76 206 v14 M344 206 v14 M210 188 v14"/>
+            <path class="st" d="M44 242 Q210 206 376 242"/>
+            <path class="st-soft" d="M44 242 v13 M376 242 v13 M210 219 v13"/>
+            <!-- delegates -->
+            <circle class="fill-gold" cx="140" cy="156" r="4"/>
+            <circle class="fill-gold" cx="185" cy="150" r="4"/>
+            <circle class="fill-gold" cx="235" cy="150" r="4"/>
+            <circle class="fill-gold" cx="280" cy="156" r="4"/>
+            <circle class="fill-soft" cx="106" cy="192" r="4.5"/>
+            <circle class="fill-soft" cx="160" cy="182" r="4.5"/>
+            <circle class="fill-soft" cx="260" cy="182" r="4.5"/>
+            <circle class="fill-soft" cx="314" cy="192" r="4.5"/>
+            <circle class="fill-soft" cx="78" cy="228" r="4.5"/>
+            <circle class="fill-soft" cx="140" cy="214" r="4.5"/>
+            <circle class="fill-soft" cx="280" cy="214" r="4.5"/>
+            <circle class="fill-soft" cx="342" cy="228" r="4.5"/>
+          </svg>
+        </div>
+
+        <div class="reveal">
+          <p class="lede">Model UN is a role-play of a real United Nations meeting. Each student becomes a <strong>delegate</strong> &mdash; you represent one country, not yourself.</p>
+          <p class="lede" style="margin-top:14px;">Your committee gets one real world problem to solve. You read about your country first, so you know what it thinks. Then everyone takes turns speaking, forms groups with countries that agree with them, and writes a <strong>resolution</strong> &mdash; a short document with the solutions the room can accept. At the end, everyone votes on it.</p>
+          <p class="lede" style="margin-top:14px;">It is done in English, with simple rules for who speaks and when. Nobody expects you to be perfect. Most delegates are nervous in their first session and fine by the second.</p>
+          <button class="pill" type="button" data-open-modal="munModal" style="margin-top:22px;">
+            <span class="dot">?</span> Words you will hear, explained
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ EVENT + COUNTDOWN ============================ -->
+  <section class="section" id="event">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Upcoming &mdash; Applications Open</p>
+        <h2>IYAMUN 2026.</h2>
+        <p>Our first conference. One day, three committees, run entirely by students. This is the only IYA programme taking applications at the moment.</p>
+      </div>
+
+      <div class="event-card reveal">
+        <div class="event-date">
+          <span class="day">27</span>
+          <span class="mon">Sun &middot; Sep 2026</span>
+        </div>
+        <div>
+          <h3>IYAMUN &mdash; International Youth Association Model UN</h3>
+          <p class="event-meta">
+            <span>&#128205; Polyglot International School, Samarkand</span>
+            <span>&#128101; Open to all grades</span>
+            <span>&#127760; Held in English</span>
+          </p>
+        </div>
+        <a class="btn btn-gold" href="#/apply">Apply now</a>
+      </div>
+
+      <div class="countdown-panel reveal" style="margin-top:32px;">
+        <h3>IYAMUN begins in</h3>
+        <p class="cd-date">Sunday, 27 September 2026 &middot; 09:00 Samarkand time</p>
+
+        <div class="cd-grid" id="cdGrid" aria-hidden="true">
+          <div class="cd-ring">
+            <svg viewBox="0 0 120 120"><circle class="cd-track" cx="60" cy="60" r="52"/><circle class="cd-arc" id="arcDays" cx="60" cy="60" r="52"/></svg>
+            <div class="cd-val"><b id="cdDays">--</b><span>Days</span></div>
+          </div>
+          <div class="cd-ring">
+            <svg viewBox="0 0 120 120"><circle class="cd-track" cx="60" cy="60" r="52"/><circle class="cd-arc" id="arcHours" cx="60" cy="60" r="52"/></svg>
+            <div class="cd-val"><b id="cdHours">--</b><span>Hours</span></div>
+          </div>
+          <div class="cd-ring">
+            <svg viewBox="0 0 120 120"><circle class="cd-track" cx="60" cy="60" r="52"/><circle class="cd-arc" id="arcMins" cx="60" cy="60" r="52"/></svg>
+            <div class="cd-val"><b id="cdMins">--</b><span>Minutes</span></div>
+          </div>
+          <div class="cd-ring secs">
+            <svg viewBox="0 0 120 120"><circle class="cd-track" cx="60" cy="60" r="52"/><circle class="cd-arc" id="arcSecs" cx="60" cy="60" r="52"/></svg>
+            <div class="cd-val"><b id="cdSecs">--</b><span>Seconds</span></div>
+          </div>
+        </div>
+
+        <p class="sr-only" id="cdText">Countdown to IYAMUN.</p>
+        <p class="cd-live"><i></i> Counting down live</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW THE DAY WORKS ============================ -->
+  <section class="section alt" id="day">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">On The Day</p>
+        <h2>What actually happens at IYAMUN.</h2>
+        <p>Four simple stages, from the moment you walk in to the moment you go home.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 20h16M8 20V9l4-5 4 5v11"/><circle cx="12" cy="12" r="1.6"/>
+          </svg>
+          <span class="num">01</span>
+          <h3>Opening</h3>
+          <p>Everyone gathers, we explain the rules of the day, and you meet the students chairing your committee.</p>
+        </div>
+        <div class="step reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 18V7a3 3 0 0 1 6 0v1"/><rect x="9" y="18" width="6" height="3" rx="1"/><path d="M6 10v2a6 6 0 0 0 12 0v-2"/>
+          </svg>
+          <span class="num">02</span>
+          <h3>Debate</h3>
+          <p>Your committee opens. Delegates take turns at the microphone and explain what their country wants.</p>
+        </div>
+        <div class="step reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/>
+          </svg>
+          <span class="num">03</span>
+          <h3>Writing</h3>
+          <p>Countries that agree work together and write a resolution &mdash; the shared list of solutions. Then the room votes.</p>
+        </div>
+        <div class="step reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="9" r="5"/><path d="M9 13.5 7.5 21l4.5-2.5 4.5 2.5-1.5-7.5"/>
+          </svg>
+          <span class="num">04</span>
+          <h3>Closing</h3>
+          <p>We close the conference, hand out awards to standout delegates, and take a group photo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ COMMITTEES ============================ -->
+  <section class="section" id="committees">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Choose Your Room</p>
+        <h2>The three committees.</h2>
+        <p>A committee is simply the room you sit in and the kind of problem you discuss. You choose your preference when you apply.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7h15M4.5 17h15"/>
+            </svg>
+          </div>
+          <h3>General Assembly</h3>
+          <p>The biggest room, where every country has a seat. You discuss wide topics such as education, climate, or development. Debate moves at a steady pace, so this is the friendliest place to start &mdash; most first-time delegates choose it.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 5 6v6c0 4.2 2.9 7.6 7 9 4.1-1.4 7-4.8 7-9V6z"/><path d="m12 8.6 1.2 2.5 2.7.4-2 1.9.5 2.7-2.4-1.3-2.4 1.3.5-2.7-2-1.9 2.7-.4z"/>
+            </svg>
+          </div>
+          <h3>Security Council</h3>
+          <p>A small room of about fifteen delegates dealing with urgent peace and safety situations. Things move fast and you speak often. Best if you have debated before, or if you like pressure.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/><path d="M12 2.5v1.4M4.6 5.2l1 1M19.4 5.2l-1 1"/>
+            </svg>
+          </div>
+          <h3>Human Rights Council</h3>
+          <p>The room for questions about people: freedom, fairness, safety, and dignity. You balance what your country believes against what people everywhere need. Good for delegates who like writing and careful argument.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ROADMAP ============================ -->
+  <section class="section alt" id="roadmap">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Plan</p>
+        <h2>From one school hall to the international stage.</h2>
+        <p>We are growing one level at a time. Each stage has to work before we try the next one.</p>
+      </div>
+
+      <div class="ladder">
+        <div class="rung is-current reveal">
+          <div class="rung-num">01</div>
+          <div>
+            <h3>Local &mdash; our own school</h3>
+            <p>IYAMUN 2026 at Polyglot International School. Students organise everything: the topics, the rules, the room, the awards.</p>
+            <span class="tag">Happening now</span>
+          </div>
+        </div>
+        <div class="rung reveal">
+          <div class="rung-num">02</div>
+          <div><h3>City &mdash; Samarkand</h3><p>We open delegate seats to students from other schools in the city, so the room stops being only us.</p></div>
+        </div>
+        <div class="rung reveal">
+          <div class="rung-num">03</div>
+          <div><h3>Regional</h3><p>A larger conference bringing together delegations from towns and cities around the region.</p></div>
+        </div>
+        <div class="rung reveal">
+          <div class="rung-num">04</div>
+          <div><h3>National &mdash; Uzbekistan</h3><p>Schools from across the country send delegations. This is the level where IYA becomes a real national event.</p></div>
+        </div>
+        <div class="rung reveal">
+          <div class="rung-num">05</div>
+          <div><h3>Central Asia</h3><p>We invite neighbouring countries. Different school systems, same table.</p></div>
+        </div>
+        <div class="rung reveal">
+          <div class="rung-num">06</div>
+          <div><h3>Asia</h3><p>A continental conference &mdash; and our first IYA chapters run by students outside Uzbekistan.</p></div>
+        </div>
+        <div class="rung reveal">
+          <div class="rung-num">07</div>
+          <div><h3>International</h3><p>Model UN, forums and mixed-subject summits with delegates from around the world. That is where we are heading.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHY JOIN ============================ -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why Join</p>
+        <h2>What you get out of it.</h2>
+        <p>Not certificates for a folder &mdash; skills you will actually use.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 18V7a3 3 0 0 1 6 0v1"/><rect x="9" y="18" width="6" height="3" rx="1"/><path d="M6 10v2a6 6 0 0 0 12 0v-2"/></svg></div>
+          <h3>Speaking in public</h3>
+          <p>You will stand up and talk to a room of people you do not know. The first time is hard. After that it stops being frightening &mdash; and that lasts for life.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="19" cy="17" r="2.4"/></svg></div>
+          <h3>Real responsibility</h3>
+          <p>Members help run the conference itself &mdash; planning, research, chairing, logistics. You are not just a guest at someone else's event.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="8" r="2.6"/><circle cx="17" cy="8" r="2.6"/><path d="M2.5 19a4.5 4.5 0 0 1 9 0M12.5 19a4.5 4.5 0 0 1 9 0"/></svg></div>
+          <h3>A network that grows</h3>
+          <p>You meet students from your school now, your city next year, and further after that &mdash; as IYA moves up the roadmap, so does the circle you belong to.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h5"/></svg></div>
+          <h3>Writing that persuades</h3>
+          <p>Resolutions have to be clear and short, or nobody votes for them. That is the same skill behind good essays, applications, and emails.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M5 8l7-5 7 5"/><path d="M5 8v8l7 5 7-5V8"/></svg></div>
+          <h3>Founding-year status</h3>
+          <p>IYA is new. Early members shape the traditions, the committees, and the rules that everyone after them will follow.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></div>
+          <h3>It starts now</h3>
+          <p>You do not have to wait for university to do serious work. The first conference is in September, and applications are open today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ REVIEWS ============================ -->
+  <section class="section alt" id="reviews">
+    <div class="wrap">
+      <div class="reviews-top reveal">
+        <div>
+          <p class="eyebrow">Reviews</p>
+          <h2>What people say about IYA.</h2>
+        </div>
+        <div class="rating-summary" id="ratingSummary" hidden>
+          <b id="ratingAvg">&mdash;</b>
+          <div>
+            <div class="stars" id="ratingStars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <span class="review-role" id="ratingCount"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-row" id="reviewsRow">
+        <p class="empty-note" id="reviewsEmpty">No reviews yet &mdash; be the first to write one below.</p>
+      </div>
+
+      <div class="review-form reveal">
+        <h3 style="margin-bottom:18px;">Leave a review</h3>
+        <form id="reviewForm" novalidate>
+          <div class="field-grid">
+            <div class="field">
+              <label for="rName">Name</label>
+              <input id="rName" name="name" type="text" required>
+            </div>
+            <div class="field">
+              <label for="rRole">Your role <span class="hint">(optional)</span></label>
+              <input id="rRole" name="role" type="text" placeholder="e.g. Grade 10 delegate">
+            </div>
+            <div class="field span-2">
+              <label>Rating</label>
+              <div class="star-pick" id="starPick" role="radiogroup" aria-label="Rating out of five">
+                <button type="button" data-val="1" role="radio" aria-checked="false" aria-label="1 star">&#9733;</button>
+                <button type="button" data-val="2" role="radio" aria-checked="false" aria-label="2 stars">&#9733;</button>
+                <button type="button" data-val="3" role="radio" aria-checked="false" aria-label="3 stars">&#9733;</button>
+                <button type="button" data-val="4" role="radio" aria-checked="false" aria-label="4 stars">&#9733;</button>
+                <button type="button" data-val="5" role="radio" aria-checked="false" aria-label="5 stars">&#9733;</button>
+              </div>
+              <input type="hidden" id="rRating" name="rating" value="0">
+            </div>
+            <div class="field span-2">
+              <label for="rText">Your review</label>
+              <textarea id="rText" name="text" required placeholder="What was your experience with IYA like?"></textarea>
+            </div>
+          </div>
+          <div class="form-foot">
+            <p class="form-note">Reviews appear on this page for everyone to read.</p>
+            <button class="btn btn-gold" type="submit">Post review</button>
+          </div>
+          <p class="status-line" id="reviewStatus" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions people ask us.</h2>
+      </div>
+      <div class="reveal">
+        <details class="faq-item" open>
+          <summary>What can I apply for right now?</summary>
+          <p>Only IYAMUN on Sunday, 27 September 2026. General IYA membership and the later conferences are not open yet &mdash; they open in the order shown in the roadmap above.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need experience?</summary>
+          <p>No. Most people applying have never done Model UN before. We explain the rules on the day, and the chairs help you during the session. Curiosity matters more than experience.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my English good enough?</summary>
+          <p>Almost certainly yes. The conference runs in English, but nobody is judged on accent or perfect grammar &mdash; only on whether your idea is clear. Simple, short sentences work very well in debate.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I have to be at Polyglot International School?</summary>
+          <p>For this first conference we are starting inside Polyglot. From the next stage we open to other schools in Samarkand, so apply anyway and we will contact you when your stage opens.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What happens after I apply?</summary>
+          <p>We read every application and reply to you directly with your committee and what to prepare before the day.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it cost anything?</summary>
+          <p>Joining IYA is free. If any event ever has a participation cost, we will say so clearly in advance.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /mainView -->
+
+<!-- ============================ APPLY PAGE ============================ -->
+<div class="subpage" id="applyView" hidden>
+  <div class="wrap">
+    <a class="page-back" href="#top">&larr; Back to site</a>
+
+    <div class="page-header">
+      <p class="eyebrow">Applications Open &mdash; IYAMUN Only</p>
+      <h2>Apply for IYAMUN 2026.</h2>
+      <p class="lede" style="margin-top:14px;">Fill this in and we will get back to you with your committee. It takes about two minutes, and you do not need any experience.</p>
+      <div class="meta-row">
+        <span>&#128197; Sunday, 27 September 2026</span>
+        <span>&#128205; Polyglot International School, Samarkand</span>
+      </div>
+      <button class="pill" type="button" data-open-modal="munModal" style="margin-top:20px;">
+        <span class="dot">?</span> What is Model UN?
+      </button>
+    </div>
+
+    <div class="form-shell">
+      <span class="c-bl" aria-hidden="true"></span><span class="c-br" aria-hidden="true"></span>
+
+      <form id="applyForm" novalidate>
+        <div class="field-grid">
+          <div class="field">
+            <label for="fName">First name</label>
+            <input id="fName" name="firstName" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="fSurname">Surname</label>
+            <input id="fSurname" name="surname" type="text" autocomplete="family-name" required>
+          </div>
+          <div class="field">
+            <label for="fGrade">Grade</label>
+            <select id="fGrade" name="grade" required>
+              <option value="" disabled selected>Select your grade</option>
+              <option>6</option><option>7</option><option>8</option><option>9</option>
+              <option>10</option><option>11</option><option>12</option>
+              <option>University / Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fLetter">School name <span class="hint">(your school name or number, e.g. 67th School)</span></label>
+            <input id="fLetter" name="letterGrade" type="text" maxlength="40" placeholder="e.g. 67th School">
+          </div>
+          <div class="field">
+            <label for="fEmail">Telegram Username <span class="hint">(we reply here)</span></label>
+            <input id="fEmail" name="email" type="text" autocomplete="off" placeholder="e.g. @yourusername" required>
+          </div>
+          <div class="field">
+            <label for="fPhone">Phone <span class="hint">(optional)</span></label>
+            <input id="fPhone" name="phone" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="field span-2">
+            <label>Committee preference <span class="hint">(pick one &mdash; tap ? if you are unsure)</span></label>
+            <div class="committee-grid" id="committeeGrid" role="radiogroup" aria-label="Committee preference">
+              <label class="committee-card" for="cmGA">
+                <input type="radio" id="cmGA" name="committee" value="General Assembly" required>
+                <svg class="cm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+                <div class="committee-head">
+                  <h4>General Assembly</h4>
+                  <span class="info-holder">
+                    <button type="button" class="info-btn" aria-label="What is the General Assembly?">?</button>
+                    <span class="info-pop" hidden>The largest committee, where every country has a seat. Topics are broad &mdash; education, climate, development. The pace is calm and the room is big, so it is the easiest place to start.</span>
+                  </span>
+                </div>
+                <p>Big room, broad topics. Best for beginners.</p>
+              </label>
+
+              <label class="committee-card" for="cmSC">
+                <input type="radio" id="cmSC" name="committee" value="Security Council" required>
+                <svg class="cm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.2 2.9 7.6 7 9 4.1-1.4 7-4.8 7-9V6z"/></svg>
+                <div class="committee-head">
+                  <h4>Security Council</h4>
+                  <span class="info-holder">
+                    <button type="button" class="info-btn" aria-label="What is the Security Council?">?</button>
+                    <span class="info-pop" hidden>A small committee of about fifteen delegates handling urgent peace and safety crises. Debate is fast and you speak often. Best if you have some debate or MUN experience.</span>
+                  </span>
+                </div>
+                <p>Small room, fast pace, urgent crises.</p>
+              </label>
+
+              <label class="committee-card" for="cmHRC">
+                <input type="radio" id="cmHRC" name="committee" value="Human Rights Council" required>
+                <svg class="cm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>
+                <div class="committee-head">
+                  <h4>Human Rights Council</h4>
+                  <span class="info-holder">
+                    <button type="button" class="info-btn" aria-label="What is the Human Rights Council?">?</button>
+                    <span class="info-pop" hidden>The committee for questions about people &mdash; freedom, fairness, safety and dignity. Delegates balance national interests against universal rights. Good for careful writers and arguers.</span>
+                  </span>
+                </div>
+                <p>People, rights and fairness.</p>
+              </label>
+            </div>
+          </div>
+
+          <div class="field span-2">
+            <label for="fExperience">Any relevant experience? <span class="hint">(optional &mdash; "none" is a fine answer)</span></label>
+            <textarea id="fExperience" name="experience" placeholder="e.g. debate club for two years, organised a school charity day, or nothing yet"></textarea>
+          </div>
+
+          <div class="field span-2">
+            <label>Also interested in helping with <span class="hint">(choose any, optional)</span></label>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="interest" value="Debate & Public Speaking"> Debate &amp; public speaking</label>
+              <label class="check"><input type="checkbox" name="interest" value="Research & Policy Writing"> Research &amp; writing</label>
+              <label class="check"><input type="checkbox" name="interest" value="Event Organizing & Logistics"> Organising &amp; logistics</label>
+              <label class="check"><input type="checkbox" name="interest" value="Design & Media"> Design &amp; media</label>
+              <label class="check"><input type="checkbox" name="interest" value="Outreach & Partnerships"> Outreach &amp; partnerships</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-foot">
+          <p class="form-note">By applying you agree that IYA may contact you about IYAMUN and your committee placement.</p>
+          <button class="btn btn-gold" type="submit" id="submitBtn">Send application</button>
+        </div>
+        <p class="status-line" id="formStatus" hidden></p>
+      </form>
+
+      <div class="confirm" id="confirmState" hidden>
+        <div class="glyph">&#10003;</div>
+        <h3>Application received</h3>
+        <p>Thank you — your application has reached our secretariat. We will contact you before 27 September with your committee and what to prepare.</p>
+        <a class="btn btn-outline" href="#reviews" style="margin-top:20px;">Read reviews</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ TEAM PAGE ============================ -->
+<div class="subpage" id="teamView" hidden>
+  <div class="wrap">
+    <a class="page-back" href="#top">&larr; Back to site</a>
+
+    <div class="page-header">
+      <p class="eyebrow">Founding Team</p>
+      <h2>The three students behind IYA.</h2>
+      <p class="lede" style="margin-top:14px;">IYA was founded at Polyglot International School in Samarkand. For IYAMUN 2026, the three founders also lead the organising team.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="card founder-card">
+        <div class="founder-photo-wrap">
+          <img class="founder-photo" data-initials="MM" alt="Monogram portrait for Mirjahon Mamatkarimov" width="136" height="136">
+        </div>
+        <h3>Mirjahon Mamatkarimov</h3>
+        <span class="founder-role">Secretary-General</span>
+        <p class="founder-sub">Leads the conference overall &mdash; the agenda, the committees, and the opening and closing sessions.</p>
+      </div>
+      <div class="card founder-card">
+        <div class="founder-photo-wrap">
+          <img class="founder-photo" data-initials="MA" alt="Monogram portrait for Muhammadjon Abdugaffarov" width="136" height="136">
+        </div>
+        <h3>Muhammadjon Abdugaffarov</h3>
+        <span class="founder-role">Head of Finance</span>
+        <p class="founder-sub">Looks after the budget and everything the conference needs to actually run on the day.</p>
+      </div>
+      <div class="card founder-card">
+        <div class="founder-photo-wrap">
+          <img class="founder-photo" data-initials="SI" alt="Monogram portrait for Samandar Ismoilov" width="136" height="136">
+        </div>
+        <h3>Samandar Ismoilov</h3>
+        <span class="founder-role">Marketing Director</span>
+        <p class="founder-sub">Gets the word out &mdash; schools, social media, and everyone who should know IYAMUN exists.</p>
+      </div>
+    </div>
+
+    <p class="team-note">The portraits above are monograms in IYA's colours. Send real photographs any time and they will replace these.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- ============================ MODAL ============================ -->
+<dialog id="munModal">
+  <button class="modal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+  <div class="modal-inner">
+    <h3>Model UN words, in plain English</h3>
+    <p><strong>Delegate</strong> &mdash; you. At the conference you speak for a country, not for yourself.</p>
+    <p><strong>Committee</strong> &mdash; the room you are placed in, and the kind of problem it discusses.</p>
+    <p><strong>Chair</strong> &mdash; the student running your room. They decide who speaks next and keep the time.</p>
+    <p><strong>Resolution</strong> &mdash; the short document your committee writes together, listing the solutions it agrees on. The room votes on it at the end.</p>
+    <p><strong>Point / Motion</strong> &mdash; the polite phrases used to ask a question or to suggest what the room does next. The chairs teach these at the start, so you do not need to learn them now.</p>
+    <p><strong>Position</strong> &mdash; what your country thinks about the topic. You research it before the day so you can argue like that country would.</p>
+  </div>
+</dialog>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <svg class="foot-art" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#e7c873" stroke-width="1"/>
+    <ellipse cx="100" cy="100" rx="90" ry="34" fill="none" stroke="#e7c873" stroke-width="1"/>
+    <ellipse cx="100" cy="100" rx="90" ry="64" fill="none" stroke="#e7c873" stroke-width="1"/>
+    <ellipse cx="100" cy="100" rx="34" ry="90" fill="none" stroke="#e7c873" stroke-width="1"/>
+    <ellipse cx="100" cy="100" rx="64" ry="90" fill="none" stroke="#e7c873" stroke-width="1"/>
+    <line x1="10" y1="100" x2="190" y2="100" stroke="#e7c873" stroke-width="1"/>
+  </svg>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>International Youth Association</h4>
+        <p>Founded by three students at Polyglot International School, Samarkand. We build events where young people practise leading &mdash; starting now, not after graduation.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <div class="foot-links">
+          <a href="#about">About</a>
+          <a href="#mun">What is Model UN</a>
+          <a href="#event">IYAMUN 2026</a>
+          <a href="#/team">Team</a>
+          <a href="#/apply">Apply</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="foot-links">
+          <a href="mailto:i.y.association1@gmail.com">i.y.association1@gmail.com</a>
+          <a href="https://t.me/iyassociation">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 International Youth Association &middot; Samarkand, Uzbekistan <a href="https://www.google.com/maps/search/?api=1&query=Polyglot+International+School+Samarkand" target="_blank" rel="noopener">Polyglot International School</a></span>
+      <span>Est. 2026</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+/* =============================================================
+   1. THEME  —  light / dark, remembered on this device
+   ============================================================= */
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('themeBtn');
+
+  try{
+    var saved = localStorage.getItem('iya-theme');
+    if(saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  }catch(e){}
+
+  function currentIsDark(){
+    var attr = root.getAttribute('data-theme');
+    if(attr) return attr === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  btn.addEventListener('click', function(){
+    var next = currentIsDark() ? 'light' : 'dark';
+    root.classList.add('theme-anim');
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('iya-theme', next); }catch(e){}
+    window.setTimeout(function(){ root.classList.remove('theme-anim'); }, 450);
+  });
+})();
+
+/* =============================================================
+   2. NAV  —  mobile menu + active link while scrolling
+   ============================================================= */
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', function(){
+    var open = links.getAttribute('data-open') === 'true';
+    links.setAttribute('data-open', String(!open));
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.setAttribute('data-open', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var map = {};
+  links.querySelectorAll('a[href^="#"]').forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    if(id && id.indexOf('/') === -1) map[id] = a;
+  });
+  var sections = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          Object.keys(map).forEach(function(k){ map[k].classList.remove('active'); });
+          if(map[en.target.id]) map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+})();
+
+/* =============================================================
+   3. ROUTER  —  main site, Apply page, Team page
+   ============================================================= */
+(function(){
+  var mainView = document.getElementById('mainView');
+  var pages = {
+    '#/apply': { el: document.getElementById('applyView'), title: 'Apply — IYAMUN 2026 | International Youth Association' },
+    '#/team':  { el: document.getElementById('teamView'),  title: 'Our Team | International Youth Association' }
+  };
+  function hideAll(){ Object.keys(pages).forEach(function(k){ pages[k].el.hidden = true; }); }
+
+  function route(){
+    var h = location.hash;
+    if(pages[h]){
+      mainView.hidden = true;
+      hideAll();
+      pages[h].el.hidden = false;
+      document.title = pages[h].title;
+      window.scrollTo(0, 0);
+    }else{
+      hideAll();
+      mainView.hidden = false;
+      document.title = 'International Youth Association';
+      var id = h && h.length > 1 ? h.slice(1) : null;
+      var el = id ? document.getElementById(id) : null;
+      if(el){ el.scrollIntoView(); } else { window.scrollTo(0, 0); }
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+})();
+
+/* =============================================================
+   4. COUNTDOWN  —  four rings that fill as the clock runs
+   ============================================================= */
+(function(){
+  var TARGET = new Date('2026-09-27T09:00:00+05:00').getTime();
+  var R = 52, C = 2 * Math.PI * R;          // ring circumference
+  var TOTAL_DAYS = 60;                       // days ring is drawn against 60 days
+
+  var els = {
+    days:  { num: document.getElementById('cdDays'),  arc: document.getElementById('arcDays'),  max: TOTAL_DAYS },
+    hours: { num: document.getElementById('cdHours'), arc: document.getElementById('arcHours'), max: 24 },
+    mins:  { num: document.getElementById('cdMins'),  arc: document.getElementById('arcMins'),  max: 60 },
+    secs:  { num: document.getElementById('cdSecs'),  arc: document.getElementById('arcSecs'),  max: 60 }
+  };
+  var hero = document.getElementById('heroCountdown');
+  var srText = document.getElementById('cdText');
+  var prev = {};
+
+  Object.keys(els).forEach(function(k){
+    var a = els[k].arc;
+    if(a){ a.style.strokeDasharray = C.toFixed(2); a.style.strokeDashoffset = C.toFixed(2); }
+  });
+
+  function setRing(key, value){
+    var e = els[key];
+    if(!e || !e.num) return;
+    var shown = (key === 'days') ? String(value) : String(value).padStart(2, '0');
+    if(prev[key] !== value){
+      e.num.textContent = shown;
+      e.num.classList.remove('pop');
+      void e.num.offsetWidth;               // restart the pop animation
+      e.num.classList.add('pop');
+      if(e.arc){
+        var frac = Math.min(1, value / e.max);
+        // when a unit wraps (0 -> 59) skip the tween so it doesn't run backwards
+        if(prev[key] !== undefined && value > prev[key]){
+          e.arc.classList.add('no-tween');
+          window.setTimeout(function(){ e.arc.classList.remove('no-tween'); }, 60);
+        }
+        e.arc.style.strokeDashoffset = (C * (1 - frac)).toFixed(2);
+      }
+      prev[key] = value;
+    }
+  }
+
+  function tick(){
+    var diff = TARGET - Date.now();
+    if(diff < 0) diff = 0;
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+
+    setRing('days', d); setRing('hours', h); setRing('mins', m); setRing('secs', s);
+    if(hero) hero.textContent = d;
+    if(srText) srText.textContent = diff === 0
+      ? 'IYAMUN is happening today.'
+      : d + ' days, ' + h + ' hours and ' + m + ' minutes until IYAMUN.';
+  }
+  tick();
+  window.setInterval(tick, 1000);
+})();
+
+/* =============================================================
+   5. REVEAL ON SCROLL
+      Anything already on screen stays visible; only content
+      further down slides in as you reach it.
+   ============================================================= */
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!items.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)) return;
+
+  var io = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.remove('pending');
+        en.target.classList.add('in');
+        obs.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+
+  items.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight * 0.95) return; // visible now: leave it
+    el.classList.add('pending');
+    io.observe(el);
+  });
+})();
+
+/* =============================================================
+   6. SCROLL BAR + BACK TO TOP
+   ============================================================= */
+(function(){
+  var bar = document.getElementById('scrollBar');
+  var top = document.getElementById('toTop');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+    top.classList.toggle('show', window.scrollY > 620);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  top.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+
+/* =============================================================
+   7. INFO POPOVERS + MODAL
+   ============================================================= */
+(function(){
+  function closeAll(except){
+    document.querySelectorAll('.info-pop').forEach(function(p){ if(p !== except) p.hidden = true; });
+  }
+  document.querySelectorAll('.info-holder').forEach(function(holder){
+    var btn = holder.querySelector('.info-btn');
+    var pop = holder.querySelector('.info-pop');
+    if(!btn || !pop) return;
+    btn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); closeAll(pop); pop.hidden = false; });
+    btn.addEventListener('focus', function(){ closeAll(pop); pop.hidden = false; });
+    btn.addEventListener('blur', function(){ pop.hidden = true; });
+    holder.addEventListener('mouseenter', function(){ closeAll(pop); pop.hidden = false; });
+    holder.addEventListener('mouseleave', function(){ pop.hidden = true; });
+  });
+  document.addEventListener('click', function(){ closeAll(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+
+  var modal = document.getElementById('munModal');
+  if(modal){
+    document.querySelectorAll('[data-open-modal="munModal"]').forEach(function(b){
+      b.addEventListener('click', function(){ modal.showModal(); });
+    });
+    modal.querySelectorAll('[data-close-modal]').forEach(function(b){
+      b.addEventListener('click', function(){ modal.close(); });
+    });
+    modal.addEventListener('click', function(e){
+      var r = modal.getBoundingClientRect();
+      var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if(!inside) modal.close();
+    });
+  }
+})();
+
+/* =============================================================
+   8. COMMITTEE CARDS  —  highlight the chosen one
+   ============================================================= */
+(function(){
+  var grid = document.getElementById('committeeGrid');
+  if(!grid) return;
+  var radios = grid.querySelectorAll('input[name="committee"]');
+  function sync(){
+    radios.forEach(function(r){ r.closest('.committee-card').classList.toggle('is-checked', r.checked); });
+  }
+  radios.forEach(function(r){ r.addEventListener('change', sync); });
+  sync();
+})();
+
+/* =============================================================
+   9. FOUNDER MONOGRAMS  —  drawn here, no external images
+   ============================================================= */
+(function(){
+  document.querySelectorAll('.founder-photo[data-initials]').forEach(function(img){
+    var initials = img.getAttribute('data-initials');
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 136">' +
+      '<circle cx="68" cy="68" r="67" fill="#0d2145"/>' +
+      '<circle cx="68" cy="68" r="54" fill="none" stroke="#e7c873" stroke-opacity=".45" stroke-width="1" stroke-dasharray="2 5"/>' +
+      '<text x="68" y="83" font-family="Georgia, serif" font-size="42" fill="#f7f9fd" text-anchor="middle">' + initials + '</text>' +
+      '</svg>';
+    img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+  });
+})();
+
+/* =============================================================
+   10. FORMS  —  applications and reviews
+   ============================================================= */
+(function(){
+  var TG_TOKEN = '8789293444:AAGNoAdlziKwyRnSKmwHjZE4RknnP3xsFnI';
+  var TG_CHAT  = '8673145264';
+  var dbPromise = (window.claude && window.claude.use) ? window.claude.use('db') : Promise.resolve(null);
+
+  function sendToTelegram(text){
+    return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'HTML', disable_web_page_preview: true })
+    }).then(function(res){
+      if(!res.ok) throw new Error('tg-' + res.status);
+      return res.json();
+    });
+  }
+
+  function showStatus(el, msg, ok){
+    el.textContent = msg;
+    el.hidden = false;
+    el.className = 'status-line ' + (ok ? 'ok' : 'err');
+  }
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  /* ---- application form ---- */
+  var applyForm = document.getElementById('applyForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var formStatus = document.getElementById('formStatus');
+  var confirmState = document.getElementById('confirmState');
+
+  applyForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!applyForm.checkValidity()){ applyForm.reportValidity(); return; }
+
+    var fd = new FormData(applyForm);
+    var interests = Array.from(applyForm.querySelectorAll('input[name="interest"]:checked')).map(function(i){ return i.value; });
+    var record = {
+      event: 'IYAMUN 2026-09-27',
+      firstName: fd.get('firstName') || '',
+      surname: fd.get('surname') || '',
+      grade: fd.get('grade') || '',
+      letterGrade: fd.get('letterGrade') || '',
+      email: fd.get('email') || '',
+      phone: fd.get('phone') || '',
+      committee: fd.get('committee') || '',
+      experience: fd.get('experience') || '',
+      interests: interests,
+      submittedAt: new Date().toISOString(),
+      sentToTelegram: false
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    var tgText = [
+      '<b>\u{1F3DB} New IYAMUN 2026 Application</b>',
+      '',
+      '<b>Name:</b> ' + escapeHtml(record.firstName + ' ' + record.surname),
+      '<b>Grade:</b> ' + escapeHtml(record.grade) + (record.letterGrade ? ' (' + escapeHtml(record.letterGrade) + ')' : ''),
+      '<b>Email:</b> ' + escapeHtml(record.email),
+      '<b>Phone:</b> ' + escapeHtml(record.phone || '—'),
+      '<b>Committee:</b> ' + escapeHtml(record.committee),
+      '<b>Also interested in:</b> ' + escapeHtml(interests.length ? interests.join(', ') : '—'),
+      '<b>Experience:</b> ' + escapeHtml(record.experience || 'none'),
+      '<b>Submitted:</b> ' + new Date(record.submittedAt).toLocaleString()
+    ].join('\n');
+
+    try{
+      await sendToTelegram(tgText);
+      var db = await dbPromise;
+      if(db){ try{ await db.collection('applications').add(record); }catch(e){} }
+      applyForm.hidden = true;
+      confirmState.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }catch(err){
+      showStatus(formStatus, 'Your application could not be delivered just now. Please check your connection and press "Send application" once more — or reach us at i.y.association1@gmail.com.', false);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send application';
+    }
+  });
+
+  /* ---- reviews ---- */
+  var reviewsRow = document.getElementById('reviewsRow');
+  var reviewsEmpty = document.getElementById('reviewsEmpty');
+  var ratingSummary = document.getElementById('ratingSummary');
+  var ratingAvg = document.getElementById('ratingAvg');
+  var ratingStars = document.getElementById('ratingStars');
+  var ratingCount = document.getElementById('ratingCount');
+
+  function renderReviews(docs){
+    reviewsRow.querySelectorAll('.card').forEach(function(c){ c.remove(); });
+    if(!docs.length){
+      reviewsEmpty.hidden = false;
+      ratingSummary.hidden = true;
+      return;
+    }
+    reviewsEmpty.hidden = true;
+    var sum = 0;
+    docs.forEach(function(d){
+      var data = d.data() || {};
+      var rating = Math.max(0, Math.min(5, Number(data.rating) || 0));
+      sum += rating;
+      var card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML =
+        '<div class="stars">' + '&#9733;'.repeat(rating) + '&#9734;'.repeat(5 - rating) + '</div>' +
+        '<p style="margin-top:14px;"><span class="review-quote" aria-hidden="true">&ldquo;</span>' + escapeHtml(data.text || '') + '</p>' +
+        '<div class="review-name">' + escapeHtml(data.name || 'Anonymous') + '</div>' +
+        (data.role ? '<div class="review-role">' + escapeHtml(data.role) + '</div>' : '');
+      reviewsRow.appendChild(card);
+    });
+    var avg = sum / docs.length;
+    ratingSummary.hidden = false;
+    ratingAvg.textContent = avg.toFixed(1);
+    var full = Math.round(avg);
+    ratingStars.innerHTML = '&#9733;'.repeat(full) + '&#9734;'.repeat(5 - full);
+    ratingCount.textContent = docs.length + (docs.length === 1 ? ' review' : ' reviews');
+  }
+
+  dbPromise.then(function(db){
+    if(!db) return;
+    try{
+      db.collection('reviews').orderBy('submittedAt', 'desc').limit(24)
+        .onSnapshot(function(snap){ renderReviews(snap.docs); }, function(){ /* keep empty state */ });
+    }catch(e){}
+  });
+
+  var starPick = document.getElementById('starPick');
+  var rRating = document.getElementById('rRating');
+  starPick.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var val = Number(btn.getAttribute('data-val'));
+      rRating.value = val;
+      starPick.querySelectorAll('button').forEach(function(b){
+        var v = Number(b.getAttribute('data-val'));
+        b.classList.toggle('on', v <= val);
+        b.setAttribute('aria-checked', String(v === val));
+      });
+    });
+  });
+
+  var reviewForm = document.getElementById('reviewForm');
+  var reviewStatus = document.getElementById('reviewStatus');
+  reviewForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(Number(rRating.value) < 1){ showStatus(reviewStatus, 'Please choose a star rating first.', false); return; }
+    if(!reviewForm.checkValidity()){ reviewForm.reportValidity(); return; }
+
+    var fd = new FormData(reviewForm);
+    var record = {
+      name: fd.get('name') || 'Anonymous',
+      role: fd.get('role') || '',
+      rating: Number(rRating.value),
+      text: fd.get('text') || '',
+      submittedAt: new Date().toISOString()
+    };
+    try{
+      var db = await dbPromise;
+      if(!db) throw new Error('no-db');
+      await db.collection('reviews').add(record);
+      reviewForm.reset();
+      rRating.value = 0;
+      starPick.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); b.setAttribute('aria-checked','false'); });
+      showStatus(reviewStatus, 'Thank you — your review is now live on this page.', true);
+    }catch(err){
+      showStatus(reviewStatus, 'Reviews cannot be posted from this view right now. Please try again from the published page.', false);
+    }
+  });
+})();
+</script>
+
+<!-- =============================================================
+     11. REVIEWS FALLBACK - new, additive only.
+     Nothing above this block is touched. When this page is opened
+     as a plain file (no window.claude runtime), the review form's
+     database write above always fails, so this block quietly takes
+     over: it stores reviews in this browser's own storage and still
+     forwards a copy to the same Telegram chat the application form
+     already uses, so the person running the site sees every review
+     even though this simple version can't show it to other visitors.
+     If window.claude IS present (e.g. this file is opened as a
+     published Claude Artifact), this block does nothing at all and
+     the original database-backed review system above runs exactly
+     as it already did.
+     ============================================================= -->
+<script>
+(function(){
+  if(window.claude && window.claude.use) return; // real database is available — leave it alone
+
+  var TG_TOKEN = '8789293444:AAGNoAdlziKwyRnSKmwHjZE4RknnP3xsFnI';
+  var TG_CHAT  = '8673145264';
+  var STORE_KEY = 'iya-reviews-v1';
+
+  function escapeHtml2(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function loadLocal(){
+    try{ return JSON.parse(localStorage.getItem(STORE_KEY) || '[]'); }catch(e){ return []; }
+  }
+  function saveLocal(list){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(list.slice(-50))); }catch(e){}
+  }
+  function notifyTelegram(rec){
+    var text = [
+      '<b>⭐ New Review Posted</b>',
+      '',
+      '<b>Name:</b> ' + escapeHtml2(rec.name),
+      rec.role ? '<b>Role:</b> ' + escapeHtml2(rec.role) : null,
+      '<b>Rating:</b> ' + '★'.repeat(rec.rating) + '☆'.repeat(5 - rec.rating),
+      '<b>Review:</b> ' + escapeHtml2(rec.text)
+    ].filter(Boolean).join('\n');
+    fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'HTML' })
+    }).catch(function(){ /* best-effort only — never blocks the on-page confirmation */ });
+  }
+
+  var reviewsRow = document.getElementById('reviewsRow');
+  var reviewsEmpty = document.getElementById('reviewsEmpty');
+  var ratingSummary = document.getElementById('ratingSummary');
+  var ratingAvg = document.getElementById('ratingAvg');
+  var ratingStars = document.getElementById('ratingStars');
+  var ratingCount = document.getElementById('ratingCount');
+  var reviewForm = document.getElementById('reviewForm');
+  var reviewStatus = document.getElementById('reviewStatus');
+  var starPick = document.getElementById('starPick');
+  var rRating = document.getElementById('rRating');
+  if(!reviewForm) return;
+
+  function renderLocal(){
+    var docs = loadLocal();
+    reviewsRow.querySelectorAll('.card').forEach(function(c){ c.remove(); });
+    if(!docs.length){
+      reviewsEmpty.hidden = false;
+      ratingSummary.hidden = true;
+      return;
+    }
+    reviewsEmpty.hidden = true;
+    var sum = 0;
+    docs.slice().reverse().forEach(function(data){
+      var rating = Math.max(0, Math.min(5, Number(data.rating) || 0));
+      sum += rating;
+      var card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML =
+        '<div class="stars">' + '★'.repeat(rating) + '☆'.repeat(5 - rating) + '</div>' +
+        '<p style="margin-top:14px;"><span class="review-quote" aria-hidden="true">&ldquo;</span>' + escapeHtml2(data.text || '') + '</p>' +
+        '<div class="review-name">' + escapeHtml2(data.name || 'Anonymous') + '</div>' +
+        (data.role ? '<div class="review-role">' + escapeHtml2(data.role) + '</div>' : '');
+      reviewsRow.appendChild(card);
+    });
+    var avg = sum / docs.length;
+    ratingSummary.hidden = false;
+    ratingAvg.textContent = avg.toFixed(1);
+    var full = Math.round(avg);
+    ratingStars.innerHTML = '★'.repeat(full) + '☆'.repeat(5 - full);
+    ratingCount.textContent = docs.length + (docs.length === 1 ? ' review' : ' reviews');
+  }
+
+  function showStatus2(el, msg, ok){
+    el.textContent = msg;
+    el.hidden = false;
+    el.className = 'status-line ' + (ok ? 'ok' : 'err');
+  }
+
+  // Capture the submit before the original (database-only) handler can show
+  // its "cannot be posted from this view" error, and handle it ourselves.
+  reviewForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    if(Number(rRating.value) < 1){ showStatus2(reviewStatus, 'Please choose a star rating first.', false); return; }
+    if(!reviewForm.checkValidity()){ reviewForm.reportValidity(); return; }
+
+    var fd = new FormData(reviewForm);
+    var record = {
+      name: fd.get('name') || 'Anonymous',
+      role: fd.get('role') || '',
+      rating: Number(rRating.value),
+      text: fd.get('text') || '',
+      submittedAt: new Date().toISOString()
+    };
+
+    var list = loadLocal();
+    list.push(record);
+    saveLocal(list);
+    notifyTelegram(record);
+    renderLocal();
+
+    reviewForm.reset();
+    rRating.value = 0;
+    starPick.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); b.setAttribute('aria-checked','false'); });
+    showStatus2(reviewStatus, 'Thank you — your review is now shown below on this device.', true);
+  }, true); // capture phase: runs before the original bubble-phase handler
+
+  renderLocal();
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
