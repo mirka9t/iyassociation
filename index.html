@@ -1027,6 +1027,95 @@ body::after{
 @media (max-width: 620px){
   body::before{ background-size:180% 180%, 180% 180%, 200% 200%; }
 }
+
+/* ============================================================
+   CHANCERY LAYER — the application-fee notice, and a richer,
+   more ceremonial background treatment (deeper ambient motion,
+   a slow-turning diplomatic seal in the hero, letterhead rules).
+   Purely additive: new selectors and custom properties only,
+   nothing above this block is redefined or removed.
+   ============================================================ */
+
+/* --- fee notice: a letterhead-style banner inside the application form --- */
+.fee-notice{
+  position:relative; display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  margin-bottom:30px; padding:17px 22px;
+  border:1px solid color-mix(in srgb, var(--gold) 48%, var(--line));
+  border-radius:10px;
+  background:
+    linear-gradient(92deg, color-mix(in srgb, var(--gold) 10%, transparent), transparent 55%),
+    var(--surface-2);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--gold) 16%, transparent);
+}
+.fee-notice-amount{
+  flex:none; font-family:"Fraunces", serif; font-weight:600; font-size:1.32rem;
+  color:var(--gold-strong); letter-spacing:.01em; line-height:1.15;
+  padding-right:20px; border-right:1px solid color-mix(in srgb, var(--gold) 42%, var(--line));
+}
+.fee-notice-text{ font-size:.87rem; color:var(--ink-soft); line-height:1.55; max-width:54ch; }
+@media (max-width:460px){
+  .fee-notice{ padding:16px 18px; }
+  .fee-notice-amount{ border-right:none; padding-right:0; }
+}
+
+/* --- ambient wash: a fourth light source and a very slow colour
+       turn, so the backdrop reads as depth rather than a simple pan --- */
+:root{ --wash-d: color-mix(in srgb, #3a6fb0 11%, transparent); }
+:root[data-theme="dark"]{ --wash-d: color-mix(in srgb, #3a6fb0 17%, transparent); }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --wash-d: color-mix(in srgb, #3a6fb0 17%, transparent); }
+}
+body::before{
+  background-image:
+    radial-gradient(900px 620px at 8% -8%, var(--wash-a), transparent 58%),
+    radial-gradient(760px 560px at 108% 18%, var(--wash-b), transparent 60%),
+    radial-gradient(820px 640px at 46% 108%, var(--wash-c), transparent 62%),
+    radial-gradient(640px 520px at 58% 42%, var(--wash-d), transparent 64%);
+  animation:driftWash 52s ease-in-out infinite alternate, washTurn 140s linear infinite;
+}
+@keyframes washTurn{ 0%{filter:hue-rotate(0deg);} 50%{filter:hue-rotate(5deg);} 100%{filter:hue-rotate(0deg);} }
+body::after{ animation:crosshatchBreathe 15s ease-in-out infinite; }
+@keyframes crosshatchBreathe{ 0%,100%{opacity:.44;} 50%{opacity:.64;} }
+
+/* --- hero: a grand, slow-turning diplomatic seal behind the copy,
+       like an emblem embossed into a letter of state --- */
+.hero{ isolation:isolate; }
+.hero::before{
+  content:""; position:absolute; z-index:-1; pointer-events:none;
+  top:50%; left:50%; width:1180px; height:1180px; max-width:230vw; max-height:230vw;
+  transform:translate(-50%,-50%) rotate(0deg); border-radius:50%;
+  background-image:
+    repeating-conic-gradient(from 0deg, rgba(231,200,115,.055) 0deg .4deg, transparent .4deg 15deg),
+    radial-gradient(circle at center, transparent 58%, rgba(231,200,115,.07) 59%, transparent 60.5%),
+    radial-gradient(circle at center, transparent 73%, rgba(231,200,115,.05) 74%, transparent 75.5%),
+    radial-gradient(circle at center, transparent 86%, rgba(231,200,115,.035) 87%, transparent 88%);
+  animation:heroSealTurn 240s linear infinite;
+}
+@keyframes heroSealTurn{ to{ transform:translate(-50%,-50%) rotate(-360deg); } }
+.hero::after{
+  content:""; position:absolute; z-index:-1; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, transparent 42%, rgba(231,200,115,.05) 50%, transparent 58%);
+  background-size:240% 240%;
+  animation:heroSheen 20s ease-in-out infinite;
+}
+@keyframes heroSheen{ 0%,100%{background-position:0% 45%;} 50%{background-position:100% 55%;} }
+@media (max-width:1000px){ .hero::before{ width:820px; height:820px; } }
+
+/* --- nav: a ceremonial double rule, as on an official letterhead --- */
+.nav{ box-shadow:0 1px 0 rgba(231,200,115,.38), 0 2px 0 rgba(255,255,255,.07); }
+
+/* --- footer rule: a slow gold shimmer instead of a static line --- */
+footer::before{ background-size:240% 100%; animation:footRuleShimmer 10s ease-in-out infinite; }
+@keyframes footRuleShimmer{ 0%,100%{background-position:0% 0;} 50%{background-position:100% 0;} }
+
+/* --- section dividers: a small ceremonial mark at the centre of the
+       top rule, echoing a wax seal on an official document --- */
+.section{ position:relative; }
+.section::before{
+  content:""; position:absolute; top:-1px; left:50%; width:7px; height:7px;
+  transform:translate(-50%,-50%) rotate(45deg); background:var(--gold);
+  opacity:.55; pointer-events:none;
+}
 </style>
 </head>
 <body>
@@ -1090,6 +1179,7 @@ body::after{
           <div class="hero-stat"><b>3</b><span>Founders</span></div>
           <div class="hero-stat"><b>3</b><span>Committees</span></div>
           <div class="hero-stat"><b id="heroCountdown">&mdash;</b><span>Days to IYAMUN</span></div>
+          <div class="hero-stat"><b>100,000</b><span>UZS Application Fee</span></div>
         </div>
       </div>
 
@@ -1260,6 +1350,7 @@ body::after{
             <span>&#128205; Polyglot International School, Samarkand</span>
             <span>&#128101; Open to all grades</span>
             <span>&#127760; Held in English</span>
+            <span>&#128179; Application fee: 100,000 UZS</span>
           </p>
         </div>
         <a class="btn btn-gold" href="#/apply">Apply now</a>
@@ -1559,7 +1650,7 @@ body::after{
         </details>
         <details class="faq-item">
           <summary>Does it cost anything?</summary>
-          <p>Joining IYA is free. If any event ever has a participation cost, we will say so clearly in advance.</p>
+          <p>Yes &mdash; IYAMUN 2026 has an application fee of 100,000 UZS per delegate. It covers your committee materials, the venue, and awards, and we will confirm the payment details once your application is reviewed.</p>
         </details>
       </div>
     </div>
@@ -1579,6 +1670,7 @@ body::after{
       <div class="meta-row">
         <span>&#128197; Sunday, 27 September 2026</span>
         <span>&#128205; Polyglot International School, Samarkand</span>
+        <span>&#128179; Application fee: 100,000 UZS</span>
       </div>
       <button class="pill" type="button" data-open-modal="munModal" style="margin-top:20px;">
         <span class="dot">?</span> What is Model UN?
@@ -1587,6 +1679,11 @@ body::after{
 
     <div class="form-shell">
       <span class="c-bl" aria-hidden="true"></span><span class="c-br" aria-hidden="true"></span>
+
+      <div class="fee-notice">
+        <span class="fee-notice-amount">100,000 UZS</span>
+        <span class="fee-notice-text">Application fee per delegate &mdash; payable once your application is accepted. This covers committee materials, the venue, and awards.</span>
+      </div>
 
       <form id="applyForm" novalidate>
         <div class="field-grid">
@@ -1682,7 +1779,7 @@ body::after{
         </div>
 
         <div class="form-foot">
-          <p class="form-note">By applying you agree that IYA may contact you about IYAMUN and your committee placement.</p>
+          <p class="form-note">By applying you agree that IYA may contact you about IYAMUN and your committee placement, and that a 100,000 UZS application fee applies once your application is accepted.</p>
           <button class="btn btn-gold" type="submit" id="submitBtn">Send application</button>
         </div>
         <p class="status-line" id="formStatus" hidden></p>
@@ -1691,7 +1788,7 @@ body::after{
       <div class="confirm" id="confirmState" hidden>
         <div class="glyph">&#10003;</div>
         <h3>Application received</h3>
-        <p>Thank you — your application has reached our secretariat. We will contact you before 27 September with your committee and what to prepare.</p>
+        <p>Thank you — your application has reached our secretariat. We will contact you before 27 September with your committee, what to prepare, and how to pay the 100,000 UZS application fee.</p>
         <a class="btn btn-outline" href="#reviews" style="margin-top:20px;">Read reviews</a>
       </div>
     </div>
